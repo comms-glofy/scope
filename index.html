@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glofy — Talent Rates</title>
+<title>Glofy | Talent Rates</title>
 <link rel="icon" href="https://raw.githubusercontent.com/comms-glofy/glofy-assets/refs/heads/main/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
@@ -95,11 +95,16 @@ nav{
   min-height:94vh;
   overflow:hidden;
 }
-.hero-right img{
+.slide-img{
+  position:absolute;inset:0;
   width:100%;height:100%;
   object-fit:cover;
   filter:brightness(0.45) saturate(0.7);
+  opacity:0;
+  transition:opacity 0.4s ease;
+  display:block !important;
 }
+.slide-img.active{opacity:1}
 .hero-right::after{
   content:'';
   position:absolute;inset:0;
@@ -460,22 +465,14 @@ body.es span[data-l="es"]{display:inline}
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://raw.githubusercontent.com/comms-glofy/glofy-assets/refs/heads/main/logo-rebrand-glofy.png" alt="Glofy">
+    <a href="https://glofy.co" target="_blank" rel="noopener" style="display:block;line-height:0;">
+      <img src="https://raw.githubusercontent.com/comms-glofy/glofy-assets/refs/heads/main/logo-rebrand-glofy.png" alt="Glofy">
+    </a>
   </div>
   <div class="nav-controls">
     <div class="pill-group" id="langG">
       <button class="pill-btn active" onclick="setL('en')">EN</button>
       <button class="pill-btn" onclick="setL('es')">ES</button>
-    </div>
-    <div class="nav-div"></div>
-    <div class="pill-group" id="currG">
-      <button class="pill-btn active" onclick="setC('usd')">USD</button>
-      <button class="pill-btn" onclick="setC('eur')">EUR</button>
-    </div>
-    <div class="nav-div"></div>
-    <div class="pill-group" id="modeG">
-      <button class="pill-btn active" onclick="setM('full')">Full-time</button>
-      <button class="pill-btn" onclick="setM('part')">Part-time</button>
     </div>
   </div>
 </nav>
@@ -488,14 +485,14 @@ body.es span[data-l="es"]{display:inline}
       <span data-l="es">Glofy · Talento Tech LATAM</span>
     </div>
     <h1>
-      <span data-l="en">Senior talent.<br><span class="light">Built for</span><br><span class="accent">global teams.</span></span>
-      <span data-l="es">Talento senior.<br><span class="light">Diseñado para</span><br><span class="accent">equipos globales.</span></span>
+      <span data-l="en">Senior talent.<br><span class="light">Ready for</span><br><span class="accent">global teams.</span></span>
+      <span data-l="es">Talento senior.<br><span class="light">Listo para</span><br><span class="accent">equipos globales.</span></span>
     </h1>
     <p class="hero-desc" data-l="en">
-      Pre-vetted senior professionals from Latin America — aligned to your timezone, your stack, and your delivery standards. <strong>Transparent rates. No surprises.</strong>
+      Pre-vetted senior professionals from Latin America, aligned to your timezone, your stack, and your delivery standards. <strong>Transparent rates.</strong>
     </p>
     <p class="hero-desc" data-l="es">
-      Profesionales senior pre-calificados de Latinoamérica — alineados a tu zona horaria, tu stack y tus estándares. <strong>Tarifas transparentes. Sin sorpresas.</strong>
+      Profesionales senior pre-calificados de Latinoamérica, alineados a tu zona horaria, tu stack y tus estándares. <strong>Tarifas transparentes.</strong>
     </p>
     <a href="#rates" class="btn-lime">
       <span data-l="en">Explore rates →</span>
@@ -509,38 +506,30 @@ body.es span[data-l="es"]{display:inline}
         <span class="clutch-star">★</span>
         <span class="clutch-label">on Clutch</span>
       </div>
-      <div class="flags-row">
-        <span class="flag" title="United States">🇺🇸</span>
-        <span class="flag" title="Spain">🇪🇸</span>
-        <span class="flag" title="Canada">🇨🇦</span>
-        <span class="flag" title="Germany">🇩🇪</span>
-        <span class="flag" title="Switzerland">🇨🇭</span>
-        <span class="flag" title="Finland">🇫🇮</span>
-        <span class="flag" title="Argentina">🇦🇷</span>
-        <span class="flag" title="Mexico">🇲🇽</span>
-      </div>
+      <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:32px;display:block;">
     </div>
   </div>
 
-  <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=80&fit=crop" alt="Global tech team">
+  <div class="hero-right" id="heroSlider">
+    <img class="slide-img active" src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/slide1.jpg" alt="Glofy talent 1">
+    <img class="slide-img" src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/slide2.jpg" alt="Glofy talent 2">
   </div>
 </section>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat-item">
-    <div class="stat-num"><span>+</span>150<span>%</span></div>
+    <div class="stat-num"><span>+</span><span id="cnt-150">0</span><span>%</span></div>
     <div class="stat-lbl" data-l="en">Staff growth 2025</div>
     <div class="stat-lbl" data-l="es">Crecimiento de equipo 2025</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num"><span>+</span>5,000</div>
+    <div class="stat-num"><span>+</span><span id="cnt-5000">0</span></div>
     <div class="stat-lbl" data-l="en">Candidates interviewed</div>
     <div class="stat-lbl" data-l="es">Candidatos entrevistados</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">95<span>%</span></div>
+    <div class="stat-num"><span id="cnt-95">0</span><span>%</span></div>
     <div class="stat-lbl" data-l="en">Retention during assignments</div>
     <div class="stat-lbl" data-l="es">Retención durante proyectos</div>
   </div>
@@ -557,8 +546,8 @@ body.es span[data-l="es"]{display:inline}
   <div class="eyebrow" data-l="es">Por qué Glofy</div>
   <h2 class="sec-h" data-l="en">LATAM as a<br><span class="dim">competitive advantage.</span></h2>
   <h2 class="sec-h" data-l="es">LATAM como<br><span class="dim">ventaja competitiva.</span></h2>
-  <p class="sec-p" data-l="en">We don't source talent. We deliver a structured, accountable model for integrating senior LATAM professionals into global teams — with the governance and rigor of an international consultancy.</p>
-  <p class="sec-p" data-l="es">No buscamos talento. Ofrecemos un modelo estructurado para integrar profesionales senior de LATAM en equipos globales — con la rigurosidad de una consultora internacional.</p>
+  <p class="sec-p" data-l="en">We deliver a structured, accountable model for integrating senior LATAM professionals into global teams, with the governance and rigor of an international consultancy.</p>
+  <p class="sec-p" data-l="es">Ofrecemos un modelo estructurado para integrar profesionales senior de LATAM en equipos globales, con la rigurosidad de una consultora internacional.</p>
 
   <div class="pillars">
     <div class="pillar">
@@ -579,8 +568,8 @@ body.es span[data-l="es"]{display:inline}
       <div class="pillar-num">03</div>
       <div class="pillar-h" data-l="en">Operational efficiency</div>
       <div class="pillar-h" data-l="es">Eficiencia operativa</div>
-      <p class="pillar-p" data-l="en">5/4 submitted-to-hired ratio. Turnaround under one week. 95% retention. We measure performance and are fully accountable for it.</p>
-      <p class="pillar-p" data-l="es">Ratio 5/4 entre postulados y contratados. Respuesta en menos de una semana. 95% de retención. Respondemos por los resultados.</p>
+      <p class="pillar-p" data-l="en"> <span>5/4 submitted-to-hired ratio.</span>  Turnaround under one week. 95% retention. We measure performance and are fully accountable for it.</p>
+      <p class="pillar-p" data-l="es"> <span>Ratio 5/4 entre postulados y contratados.</span> Respuesta en menos de una semana. 95% de retención. Respondemos por los resultados.</p>
     </div>
     <div class="pillar">
       <div class="pillar-num">04</div>
@@ -597,18 +586,27 @@ body.es span[data-l="es"]{display:inline}
   <div class="sec-inner">
     <div class="rates-header">
       <div>
-        <div class="eyebrow" data-l="en">Rate Card 2025</div>
-        <div class="eyebrow" data-l="es">Carta de Tarifas 2025</div>
+        <div class="eyebrow" data-l="en">Monthly Rates</div>
+        <div class="eyebrow" data-l="es">Tarifas Mensuales</div>
         <h2 class="sec-h" data-l="en">Transparent pricing,<br><span class="dim">by profile group.</span></h2>
         <h2 class="sec-h" data-l="es">Precios transparentes,<br><span class="dim">por grupo de perfil.</span></h2>
       </div>
-      <div>
-        <div class="rate-meta">
-          <span class="meta-pill meta-curr" id="currBadge">USD</span>
-          <span class="meta-pill meta-mode" id="modeBadge">Full-time</span>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end;">
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="pill-group" id="currG">
+            <button class="pill-btn active" onclick="setC('usd')">USD</button>
+            <button class="pill-btn" onclick="setC('eur')">EUR</button>
+          </div>
+          <div class="nav-div"></div>
+          <div class="pill-group" id="modeG">
+            <button class="pill-btn active" onclick="setM('full')">Full-time</button>
+            <button class="pill-btn" onclick="setM('part')">Part-time</button>
+          </div>
         </div>
-        <div id="partNote" data-l="en">Part-time = 50% of monthly full-time rate (approx. 80h/month)</div>
-        <div id="partNoteEs" style="display:none" data-l="es">Part-time = 50% de la tarifa mensual full-time (aprox. 80h/mes)</div>
+        <div id="partNote" style="display:none;font-size:11px;color:var(--w20);font-weight:500;line-height:1.6;text-align:right;">
+          <span data-l="en">Part-time = 50% of monthly full-time rate (approx. 80h/month)</span>
+          <span data-l="es">Part-time = 50% de la tarifa mensual full-time (aprox. 80h/mes)</span>
+        </div>
       </div>
     </div>
 
@@ -617,11 +615,10 @@ body.es span[data-l="es"]{display:inline}
       <!-- HIGH SPEC -->
       <div class="rcard">
         <div class="rcard-img">
-          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=75&fit=crop" alt="AI Engineer at work">
+          <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/high.jpg" alt="High Specialization">
           <div class="rcard-img-overlay"></div>
           <div class="rcard-img-label">
-            <div class="rcard-name" data-l="en">High Specialization</div>
-            <div class="rcard-name" data-l="es">Alta Especialización</div>
+            <div class="rcard-name">High Specialization</div>
           </div>
         </div>
         <div class="rcard-body">
@@ -633,18 +630,16 @@ body.es span[data-l="es"]{display:inline}
           <table class="rtable">
             <thead>
               <tr>
-                <th data-l="en">Level</th><th data-l="en">Semi-Senior</th><th data-l="en">Senior</th>
-              </tr>
-              <tr>
-                <th data-l="es">Nivel</th><th data-l="es">Semi-Senior</th><th data-l="es">Senior</th>
+                <th><span data-l="en">Level</span><span data-l="es">Nivel</span></th>
+                <th>Semi-Senior</th>
+                <th>Senior</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="rate-level" data-l="en">Monthly</td>
-                <td class="rate-level" data-l="es">Mensual</td>
-                <td><div class="rate-val" data-g="hi" data-lv="ssr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
-                <td><div class="rate-val-sr" data-g="hi" data-lv="sr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
+                <td class="rate-level"><span data-l="en">Monthly</span><span data-l="es">Mensual</span></td>
+                <td><div class="rate-val" data-g="hi" data-lv="ssr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
+                <td><div class="rate-val-sr" data-g="hi" data-lv="sr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
               </tr>
             </tbody>
           </table>
@@ -654,7 +649,7 @@ body.es span[data-l="es"]{display:inline}
       <!-- ERP/CRM -->
       <div class="rcard">
         <div class="rcard-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=75&fit=crop" alt="Enterprise systems">
+          <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/enterprise.jpg" alt="ERP CRM Enterprise">
           <div class="rcard-img-overlay"></div>
           <div class="rcard-img-label">
             <div class="rcard-name">ERP / CRM / Enterprise</div>
@@ -668,18 +663,16 @@ body.es span[data-l="es"]{display:inline}
           <table class="rtable">
             <thead>
               <tr>
-                <th data-l="en">Level</th><th data-l="en">Semi-Senior</th><th data-l="en">Senior</th>
-              </tr>
-              <tr>
-                <th data-l="es">Nivel</th><th data-l="es">Semi-Senior</th><th data-l="es">Senior</th>
+                <th><span data-l="en">Level</span><span data-l="es">Nivel</span></th>
+                <th>Semi-Senior</th>
+                <th>Senior</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="rate-level" data-l="en">Monthly</td>
-                <td class="rate-level" data-l="es">Mensual</td>
-                <td><div class="rate-val" data-g="erp" data-lv="ssr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
-                <td><div class="rate-val-sr" data-g="erp" data-lv="sr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
+                <td class="rate-level"><span data-l="en">Monthly</span><span data-l="es">Mensual</span></td>
+                <td><div class="rate-val" data-g="erp" data-lv="ssr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
+                <td><div class="rate-val-sr" data-g="erp" data-lv="sr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
               </tr>
             </tbody>
           </table>
@@ -689,7 +682,7 @@ body.es span[data-l="es"]{display:inline}
       <!-- CORE TECH -->
       <div class="rcard">
         <div class="rcard-img">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=75&fit=crop" alt="Full stack development">
+          <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/core-tech.jpg" alt="Core Tech">
           <div class="rcard-img-overlay"></div>
           <div class="rcard-img-label">
             <div class="rcard-name">Core Tech</div>
@@ -705,18 +698,16 @@ body.es span[data-l="es"]{display:inline}
           <table class="rtable">
             <thead>
               <tr>
-                <th data-l="en">Level</th><th data-l="en">Semi-Senior</th><th data-l="en">Senior</th>
-              </tr>
-              <tr>
-                <th data-l="es">Nivel</th><th data-l="es">Semi-Senior</th><th data-l="es">Senior</th>
+                <th><span data-l="en">Level</span><span data-l="es">Nivel</span></th>
+                <th>Semi-Senior</th>
+                <th>Senior</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="rate-level" data-l="en">Monthly</td>
-                <td class="rate-level" data-l="es">Mensual</td>
-                <td><div class="rate-val" data-g="core" data-lv="ssr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
-                <td><div class="rate-val-sr" data-g="core" data-lv="sr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
+                <td class="rate-level"><span data-l="en">Monthly</span><span data-l="es">Mensual</span></td>
+                <td><div class="rate-val" data-g="core" data-lv="ssr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
+                <td><div class="rate-val-sr" data-g="core" data-lv="sr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
               </tr>
             </tbody>
           </table>
@@ -726,11 +717,10 @@ body.es span[data-l="es"]{display:inline}
       <!-- DIGITAL NO-DEV -->
       <div class="rcard">
         <div class="rcard-img">
-          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=75&fit=crop" alt="Digital design and marketing">
+          <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/nodev.jpg" alt="Digital No-Dev">
           <div class="rcard-img-overlay"></div>
           <div class="rcard-img-label">
-            <div class="rcard-name" data-l="en">Digital Non-Dev</div>
-            <div class="rcard-name" data-l="es">Digital No-Dev</div>
+            <div class="rcard-name">Digital No-Dev</div>
           </div>
         </div>
         <div class="rcard-body">
@@ -742,18 +732,16 @@ body.es span[data-l="es"]{display:inline}
           <table class="rtable">
             <thead>
               <tr>
-                <th data-l="en">Level</th><th data-l="en">Semi-Senior</th><th data-l="en">Senior</th>
-              </tr>
-              <tr>
-                <th data-l="es">Nivel</th><th data-l="es">Semi-Senior</th><th data-l="es">Senior</th>
+                <th><span data-l="en">Level</span><span data-l="es">Nivel</span></th>
+                <th>Semi-Senior</th>
+                <th>Senior</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="rate-level" data-l="en">Monthly</td>
-                <td class="rate-level" data-l="es">Mensual</td>
-                <td><div class="rate-val" data-g="nodev" data-lv="ssr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
-                <td><div class="rate-val-sr" data-g="nodev" data-lv="sr"></div><div class="rate-sub" data-l="en">per month</div><div class="rate-sub" data-l="es">por mes</div></td>
+                <td class="rate-level"><span data-l="en">Monthly</span><span data-l="es">Mensual</span></td>
+                <td><div class="rate-val" data-g="nodev" data-lv="ssr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
+                <td><div class="rate-val-sr" data-g="nodev" data-lv="sr"></div><div class="rate-sub"><span data-l="en">per month</span><span data-l="es">por mes</span></div></td>
               </tr>
             </tbody>
           </table>
@@ -772,55 +760,9 @@ body.es span[data-l="es"]{display:inline}
 <section class="clients-sec">
   <div class="clients-eyebrow" data-l="en">They already trust us</div>
   <div class="clients-eyebrow" data-l="es">Ya confían en nosotros</div>
-  <div class="clients-grid">
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/iberojet.com" alt="Iberojet" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Iberojet</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/cargill.com" alt="Cargill" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Cargill</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/clearme.com" alt="Clear" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Clear</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/netred.com" alt="Netred" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Netred</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/perfaware.com" alt="Perfaware" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Perfaware</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/itsystems.com" alt="ITSystems" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">ITSystems</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/timit.com" alt="Timit" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Timit</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/whyline.com" alt="Whyline" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Whyline</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/epc.com.ar" alt="EPC" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">EPC</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/kingfisher.com" alt="Kingfisher" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Kingfisher</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/genexus.com" alt="GeneXus" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">GeneXus</span>
-    </div>
-    <div class="client-cell">
-      <img class="client-logo" src="https://logo.clearbit.com/softland.com" alt="Softland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <span class="client-fallback" style="display:none">Softland</span>
-    </div>
+  <div style="max-width:1100px;margin:0 auto;">
+    <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/clientes.png"
+         alt="Clients" style="width:100%;display:block;opacity:0.85;">
   </div>
 </section>
 
@@ -855,12 +797,8 @@ function render(){
     const v = RATES[el.dataset.g][el.dataset.lv] * m;
     el.textContent = fmt(v, curr);
   });
-  document.getElementById('currBadge').textContent = curr.toUpperCase();
-  const mLabel = mode === 'full' ? 'Full-time' : 'Part-time (50%)';
-  document.getElementById('modeBadge').textContent = mLabel;
-  const show = mode === 'part';
-  document.getElementById('partNote').style.display = show ? 'block' : 'none';
-  document.getElementById('partNoteEs').style.display = show ? 'block' : 'none';
+  const pn = document.getElementById('partNote');
+  if(pn) pn.style.display = mode === 'part' ? 'block' : 'none';
 }
 
 function setL(l){
@@ -880,6 +818,54 @@ function setM(m){
   document.querySelectorAll('#modeG .pill-btn').forEach((b,i) => b.classList.toggle('active', (i===0&&m==='full')||(i===1&&m==='part')));
   render();
 }
+
+// Hero slider — crossfade every 5s
+(function(){
+  const imgs = document.querySelectorAll('.slide-img');
+  if(!imgs.length) return;
+  let idx = 0;
+  setInterval(function(){
+    imgs[idx].classList.remove('active');
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add('active');
+  }, 5000);
+})();
+
+// Count-up animation
+(function(){
+  function countUp(el, target, duration, formatter){
+    const start = performance.now();
+    function step(now){
+      const p = Math.min((now - start) / duration, 1);
+      // ease out cubic
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = formatter(Math.round(ease * target));
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const stats = [
+    { id:'cnt-150',  target:150,  fmt: v => v },
+    { id:'cnt-5000', target:5000, fmt: v => v.toLocaleString('en-US') },
+    { id:'cnt-95',   target:95,   fmt: v => v },
+  ];
+
+  const bar = document.querySelector('.stats-bar');
+  if(!bar) return;
+
+  let fired = false;
+  const obs = new IntersectionObserver(function(entries){
+    if(fired || !entries[0].isIntersecting) return;
+    fired = true;
+    stats.forEach(function(s){
+      const el = document.getElementById(s.id);
+      if(el) countUp(el, s.target, 1400, s.fmt);
+    });
+    obs.disconnect();
+  }, { threshold: 0.3 });
+  obs.observe(bar);
+})();
 
 render();
 </script>
