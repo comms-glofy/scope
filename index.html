@@ -374,7 +374,19 @@ nav{
 }
 .clients-eyebrow{
   font-size:10px;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--w20);text-align:center;margin-bottom:44px;
+  color:var(--w100);text-align:center;margin-bottom:36px;
+}
+@keyframes floatImg{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.clients-img{
+  display:block;
+  width:80%;
+  max-width:860px;
+  margin:0 auto;
+  opacity:0.88;
+  animation:floatImg 5s ease-in-out infinite;
 }
 .clients-grid{
   display:grid;
@@ -501,12 +513,14 @@ body.es span[data-l="es"]{display:inline}
 
     <!-- Clutch + flags -->
     <div class="hero-trust">
-      <div class="clutch-badge">
-        <span class="clutch-score">4.5</span>
-        <span class="clutch-star">★</span>
-        <span class="clutch-label">on Clutch</span>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;">
+        <div class="clutch-badge">
+          <span class="clutch-score">4.5</span>
+          <span class="clutch-star">★</span>
+          <span class="clutch-label">on Clutch</span>
+        </div>
+        <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:20px;display:block;opacity:0.85;">
       </div>
-      <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:32px;display:block;">
     </div>
   </div>
 
@@ -762,7 +776,7 @@ body.es span[data-l="es"]{display:inline}
   <div class="clients-eyebrow" data-l="es">Ya confían en nosotros</div>
   <div style="max-width:1100px;margin:0 auto;">
     <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/clientes.png"
-         alt="Clients" style="width:100%;display:block;opacity:0.85;">
+         alt="Clients" class="clients-img">
   </div>
 </section>
 
