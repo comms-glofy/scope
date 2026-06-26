@@ -224,80 +224,105 @@ nav{
 .sec-h .dim{color:var(--w45);font-weight:300}
 .sec-p{font-size:14px;color:var(--w45);line-height:1.8;max-width:520px}
 
-/* ─── WHY PILLARS ─── */
-.pillars{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  margin-top:56px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.06);
-}
-.pillar{
+/* ─── TAGLINE BANNER ─── */
+.tagline-banner{
+  position:relative;
+  overflow:hidden;
+  padding:56px 80px;
   background:var(--ink);
-  padding:40px 32px;
-  transition:background .25s;
-  position:relative;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  display:flex;align-items:center;justify-content:center;
 }
-.pillar::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;
-  height:2px;background:var(--lime);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .3s ease;
+.tagline-grid-overlay{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(206,255,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(206,255,0,0.04) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 100% at 50% 50%, black 20%, transparent 80%);
 }
-.pillar:hover{background:var(--ink-3)}
-.pillar:hover::before{transform:scaleX(1)}
-.pillar-num{
-  font-size:11px;font-weight:800;letter-spacing:0.15em;
-  color:var(--lime);margin-bottom:20px;font-family:var(--serif);
+.tagline-orbs{position:absolute;inset:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.12}
+.orb-1{width:300px;height:300px;background:var(--lime);top:-80px;left:10%}
+.orb-2{width:200px;height:200px;background:var(--lime);bottom:-60px;right:15%;opacity:0.08}
+.orb-3{width:150px;height:150px;background:#00ffcc;top:30%;left:60%;opacity:0.06}
+.tagline-nodes{position:absolute;inset:0;pointer-events:none}
+.tagline-svg{width:100%;height:100%;position:absolute;inset:0}
+@keyframes pulseRing{0%{r:10;opacity:0.3}100%{r:28;opacity:0}}
+@keyframes pulseRing2{0%{r:8;opacity:0.25}100%{r:22;opacity:0}}
+.pulse-ring{animation:pulseRing 3s ease-out infinite}
+.pulse-ring-2{animation:pulseRing2 3s ease-out infinite 1.5s}
+.tagline-content{
+  position:relative;z-index:2;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
 }
-.pillar-h{font-size:15px;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em}
-.pillar-p{font-size:12px;color:var(--w45);line-height:1.75}
+.tagline-text{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(22px,3.5vw,48px);
+  font-weight:300;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--w70);
+  line-height:1.2;
+}
+.tagline-text strong{
+  font-weight:900;
+  color:var(--lime);
+  letter-spacing:0.02em;
+}
+.tagline-line{
+  width:48px;height:2px;background:var(--lime);opacity:0.6;
+}
 
-/* ─── RATES ─── */
-.rates-header{
-  display:flex;align-items:flex-end;
-  justify-content:space-between;
-  margin-bottom:52px;flex-wrap:wrap;gap:24px;
-}
-.rate-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-
-/* ─── RATE CARD ─── */
+/* ─── RATE CARD — horizontal layout ─── */
 .rcard{
   background:var(--ink-3);
   border:1px solid rgba(255,255,255,0.07);
-  border-radius:0;
+  border-radius:14px;
   overflow:hidden;
   transition:border-color .25s;
-  display:flex;flex-direction:column;
+  display:grid;
+  grid-template-columns:280px 1fr;
+  min-height:180px;
 }
 .rcard:hover{border-color:rgba(206,255,0,0.22)}
-
-/* card photo */
 .rcard-img{
-  width:100%;height:200px;
-  overflow:hidden;position:relative;
+  width:100%;
+  position:relative;
+  overflow:hidden;
 }
 .rcard-img img{
   width:100%;height:100%;object-fit:cover;
   filter:brightness(0.5) saturate(0.6);
   transition:transform .5s ease, filter .4s;
+  display:block !important;
 }
 .rcard:hover .rcard-img img{transform:scale(1.04);filter:brightness(0.55) saturate(0.7)}
 .rcard-img-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(0deg, var(--ink-3) 0%, transparent 55%);
+  background:linear-gradient(90deg, transparent 60%, var(--ink-3) 100%);
 }
 .rcard-img-label{
-  position:absolute;bottom:16px;left:20px;right:20px;
-  display:flex;align-items:center;justify-content:space-between;
+  position:absolute;bottom:16px;left:16px;right:16px;
 }
 .rcard-name{
-  font-size:18px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;
+  font-size:16px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;
 }
+.rcard-body{
+  padding:24px 28px;
+  display:flex;flex-direction:column;
+  gap:14px;
+  justify-content:center;
+}
+.rates-header{
+  display:flex;align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:52px;flex-wrap:wrap;gap:24px;
+}
+.rate-cards{display:grid;grid-template-columns:1fr;gap:16px}
 
-/* card body */
-.rcard-body{padding:20px 20px 24px;flex:1;display:flex;flex-direction:column;gap:16px}
 
 .tech-tags{display:flex;flex-wrap:wrap;gap:5px}
 .tag{
@@ -447,7 +472,8 @@ body.es span[data-l="es"]{display:inline}
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
   .rate-cards{grid-template-columns:1fr}
-  .pillars{grid-template-columns:repeat(2,1fr)}
+  .rcard{grid-template-columns:1fr}
+  .rcard-img{height:180px}
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
@@ -458,7 +484,8 @@ body.es span[data-l="es"]{display:inline}
   .hero-left{padding:80px 24px 60px}
   .sec{padding:64px 24px}
   .sec-alt .sec-inner{padding:64px 24px}
-  .pillars{grid-template-columns:1fr}
+  .rcard{grid-template-columns:1fr}
+  .rcard-img{height:160px}
   .clients-sec{padding:48px 24px}
   footer{padding:28px 24px}
   .stats-bar{grid-template-columns:1fr 1fr}
@@ -554,44 +581,52 @@ body.es span[data-l="es"]{display:inline}
   </div>
 </div>
 
-<!-- WHY GLOFY -->
-<section class="sec">
-  <div class="eyebrow" data-l="en">Why Glofy</div>
-  <div class="eyebrow" data-l="es">Por qué Glofy</div>
-  <h2 class="sec-h" data-l="en">LATAM as a<br><span class="dim">competitive advantage.</span></h2>
-  <h2 class="sec-h" data-l="es">LATAM como<br><span class="dim">ventaja competitiva.</span></h2>
-  <p class="sec-p" data-l="en">We deliver a structured, accountable model for integrating senior LATAM professionals into global teams, with the governance and rigor of an international consultancy.</p>
-  <p class="sec-p" data-l="es">Ofrecemos un modelo estructurado para integrar profesionales senior de LATAM en equipos globales, con la rigurosidad de una consultora internacional.</p>
-
-  <div class="pillars">
-    <div class="pillar">
-      <div class="pillar-num">01</div>
-      <div class="pillar-h" data-l="en">Timezone alignment</div>
-      <div class="pillar-h" data-l="es">Alineación horaria</div>
-      <p class="pillar-p" data-l="en">LATAM operates within overlapping business hours across US and European markets. Real-time collaboration without friction.</p>
-      <p class="pillar-p" data-l="es">LATAM opera en horarios compatibles con mercados de EE.UU. y Europa. Colaboración en tiempo real, sin fricciones.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">02</div>
-      <div class="pillar-h" data-l="en">Cultural alignment</div>
-      <div class="pillar-h" data-l="es">Alineación cultural</div>
-      <p class="pillar-p" data-l="en">Senior professionals with international project exposure, business-level English, and proven experience in distributed, cross-functional environments.</p>
-      <p class="pillar-p" data-l="es">Profesionales senior con exposición internacional, inglés de negocios y experiencia en entornos distribuidos y multifuncionales.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">03</div>
-      <div class="pillar-h" data-l="en">Operational efficiency</div>
-      <div class="pillar-h" data-l="es">Eficiencia operativa</div>
-      <p class="pillar-p" data-l="en"> <span>5/4 submitted-to-hired ratio.</span>  Turnaround under one week. 95% retention. We measure performance and are fully accountable for it.</p>
-      <p class="pillar-p" data-l="es"> <span>Ratio 5/4 entre postulados y contratados.</span> Respuesta en menos de una semana. 95% de retención. Respondemos por los resultados.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-num">04</div>
-      <div class="pillar-h" data-l="en">Pre-vetted senior talent</div>
-      <div class="pillar-h" data-l="es">Talento senior pre-calificado</div>
-      <p class="pillar-p" data-l="en">Every candidate is assessed for technical depth, communication, and cultural fit before reaching your team. You interview fewer. You hire better.</p>
-      <p class="pillar-p" data-l="es">Cada candidato es evaluado en profundidad técnica, comunicación y cultura. Entrevistás menos. Contratás mejor.</p>
-    </div>
+<!-- TAGLINE BANNER -->
+<section class="tagline-banner">
+  <div class="tagline-grid-overlay"></div>
+  <div class="tagline-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="tagline-nodes">
+    <svg class="tagline-svg" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- connection lines -->
+      <line x1="60" y1="80" x2="220" y2="50" stroke="rgba(206,255,0,0.15)" stroke-width="1"/>
+      <line x1="220" y1="50" x2="480" y2="120" stroke="rgba(206,255,0,0.1)" stroke-width="1"/>
+      <line x1="480" y1="120" x2="750" y2="40" stroke="rgba(206,255,0,0.12)" stroke-width="1"/>
+      <line x1="750" y1="40" x2="980" y2="90" stroke="rgba(206,255,0,0.1)" stroke-width="1"/>
+      <line x1="980" y1="90" x2="1140" y2="55" stroke="rgba(206,255,0,0.15)" stroke-width="1"/>
+      <line x1="60" y1="80" x2="480" y2="120" stroke="rgba(206,255,0,0.06)" stroke-width="1"/>
+      <line x1="220" y1="50" x2="750" y2="40" stroke="rgba(206,255,0,0.05)" stroke-width="1"/>
+      <line x1="480" y1="120" x2="980" y2="90" stroke="rgba(206,255,0,0.07)" stroke-width="1"/>
+      <line x1="120" y1="190" x2="360" y2="210" stroke="rgba(206,255,0,0.08)" stroke-width="1"/>
+      <line x1="360" y1="210" x2="620" y2="180" stroke="rgba(206,255,0,0.1)" stroke-width="1"/>
+      <line x1="620" y1="180" x2="870" y2="200" stroke="rgba(206,255,0,0.08)" stroke-width="1"/>
+      <line x1="870" y1="200" x2="1100" y2="170" stroke="rgba(206,255,0,0.1)" stroke-width="1"/>
+      <!-- nodes -->
+      <circle cx="60" cy="80" r="3" fill="rgba(206,255,0,0.5)"/>
+      <circle cx="220" cy="50" r="2" fill="rgba(206,255,0,0.4)"/>
+      <circle cx="480" cy="120" r="3.5" fill="rgba(206,255,0,0.6)"/>
+      <circle cx="750" cy="40" r="2" fill="rgba(206,255,0,0.35)"/>
+      <circle cx="980" cy="90" r="3" fill="rgba(206,255,0,0.5)"/>
+      <circle cx="1140" cy="55" r="2" fill="rgba(206,255,0,0.3)"/>
+      <circle cx="120" cy="190" r="2" fill="rgba(206,255,0,0.3)"/>
+      <circle cx="360" cy="210" r="3" fill="rgba(206,255,0,0.45)"/>
+      <circle cx="620" cy="180" r="2.5" fill="rgba(206,255,0,0.4)"/>
+      <circle cx="870" cy="200" r="2" fill="rgba(206,255,0,0.35)"/>
+      <circle cx="1100" cy="170" r="3" fill="rgba(206,255,0,0.5)"/>
+      <!-- pulse rings -->
+      <circle cx="480" cy="120" r="10" fill="none" stroke="rgba(206,255,0,0.15)" stroke-width="1" class="pulse-ring"/>
+      <circle cx="980" cy="90" r="8" fill="none" stroke="rgba(206,255,0,0.12)" stroke-width="1" class="pulse-ring-2"/>
+    </svg>
+  </div>
+  <div class="tagline-content">
+    <p class="tagline-text">
+      <span data-l="en">Verified <strong>AI Talent</strong> for Global Teams</span>
+      <span data-l="es">Verified <strong>AI Talent</strong> for Global Teams</span>
+    </p>
+    <div class="tagline-line"></div>
   </div>
 </section>
 
