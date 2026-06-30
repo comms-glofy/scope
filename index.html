@@ -86,7 +86,7 @@ nav{
   overflow:hidden;
 }
 .hero-left{
-  padding:100px 80px 100px 80px;
+  padding:64px 80px 100px 80px;
   position:relative;z-index:2;
 }
 .hero-right{
@@ -139,10 +139,10 @@ nav{
 .hero h1 .accent{color:var(--lime)}
 .hero h1 .light{font-weight:300;font-style:italic;font-family:var(--serif);color:var(--w70)}
 .hero-desc{
-  font-size:17px;font-weight:400;
+  font-size:21px;font-weight:400;
   color:var(--w100);
-  line-height:1.75;
-  max-width:480px;
+  line-height:1.65;
+  max-width:500px;
   margin-bottom:40px;
 }
 .hero-desc strong{color:var(--lime);font-weight:700}
@@ -164,17 +164,17 @@ nav{
   display:flex;align-items:center;gap:20px;flex-wrap:wrap;
 }
 .clutch-badge{
-  display:inline-flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:10px;
   background:#0d0d0d;
   border:1.5px solid var(--lime);
-  border-radius:6px;
-  padding:8px 16px;
+  border-radius:7px;
+  padding:11px 20px;
 }
 .clutch-score{
-  font-size:16px;font-weight:900;color:var(--lime);letter-spacing:-0.02em;
+  font-size:20px;font-weight:900;color:var(--lime);letter-spacing:-0.02em;
 }
-.clutch-star{color:var(--lime);font-size:14px}
-.clutch-label{font-size:10px;font-weight:700;color:var(--w70);letter-spacing:0.06em;text-transform:uppercase}
+.clutch-star{color:var(--lime);font-size:17px}
+.clutch-label{font-size:12px;font-weight:700;color:var(--w70);letter-spacing:0.06em;text-transform:uppercase}
 .flags-row{display:flex;align-items:center;gap:6px}
 .flag{font-size:20px;line-height:1}
 
@@ -612,64 +612,45 @@ body.es span[data-l="es"]{display:inline}
 }
 .savings-eyebrow{
   font-size:10px;font-weight:800;letter-spacing:0.14em;
-  text-transform:uppercase;color:rgba(255,255,255,0.35);
-  margin-bottom:20px;line-height:1.5;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);
+  margin-bottom:24px;line-height:1.5;
 }
-/* monthly savings — PRIMARY in savings col */
-.savings-monthly{ display:none }
-.savings-monthly-es{ display:none }
-.savings-amount{
-  font-size:56px;font-weight:900;letter-spacing:-0.04em;
-  color:#ceff00;line-height:1;
-  margin-bottom:2px;
-  min-height:58px;
-  font-variant-numeric:tabular-nums;
-  -webkit-font-feature-settings:"tnum";
-  font-feature-settings:"tnum";
-}
-.savings-year{
-  font-size:12px;font-weight:600;color:rgba(255,255,255,0.35);
-  margin-bottom:20px;
-}
-.savings-annual-box{
-  width:100%;
-  background:rgba(255,255,255,0.06);
-  border-radius:8px;
-  padding:14px 16px;
-  margin-bottom:20px;
-  display:flex;flex-direction:column;gap:4px;
-}
-.savings-annual-label{
-  font-size:9px;font-weight:800;letter-spacing:0.16em;
-  text-transform:uppercase;color:rgba(255,255,255,0.3);
-}
-.savings-annual-val{
-  font-size:22px;font-weight:800;letter-spacing:-0.02em;
-  color:rgba(255,255,255,0.6);line-height:1.1;
-  min-height:26px;
-  font-variant-numeric:tabular-nums;
-  -webkit-font-feature-settings:"tnum";
-  font-feature-settings:"tnum";
-}
-/* pct block */
+/* pct block — tagline-style background */
 .savings-pct-wrap{
-  display:flex;align-items:center;gap:16px;
-  padding:18px 20px;
-  background:#ceff00;
-  border-radius:10px;
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:10px;
+  padding:32px 28px;
+  background:#0a0a0a;
+  border-radius:14px;
   width:100%;
+  position:relative;
+  overflow:hidden;
+}
+.savings-pct-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(206,255,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(206,255,0,0.06) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:radial-gradient(ellipse 100% 100% at 30% 30%, black 20%, transparent 85%);
+}
+.savings-pct-orb{
+  position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;
+  width:160px;height:160px;background:var(--lime);opacity:0.18;
+  top:-50px;right:-40px;
 }
 .savings-pct{
-  font-size:48px;font-weight:900;letter-spacing:-0.04em;
-  color:#0a0a0a;line-height:1;
-  min-width:90px;
+  font-size:60px;font-weight:900;letter-spacing:-0.04em;
+  color:var(--lime);line-height:0.95;
   font-variant-numeric:tabular-nums;
   -webkit-font-feature-settings:"tnum";
   font-feature-settings:"tnum";
+  position:relative;z-index:1;
 }
 .savings-pct-label{
-  font-size:12px;font-weight:700;color:#0a0a0a;
-  line-height:1.5;opacity:0.6;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,0.55);
+  line-height:1.4;
+  position:relative;z-index:1;
 }
 
 @media(max-width:900px){
@@ -705,13 +686,9 @@ body.es span[data-l="es"]{display:inline}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">
-      <span data-l="en">Glofy · LATAM Tech Talent</span>
-      <span data-l="es">Glofy · Talento Tech LATAM</span>
-    </div>
     <h1>
-      <span data-l="en">Senior talent.<br><span class="light">Ready for</span><br><span class="accent">global teams.</span></span>
-      <span data-l="es">Talento senior.<br><span class="light">Listo para</span><br><span class="accent">equipos globales.</span></span>
+      <span data-l="en">Senior talent.<br><span class="light">Ready for</span><br><span class="accent">your team.</span></span>
+      <span data-l="es">Talento senior.<br><span class="light">Listo para</span><br><span class="accent">tu equipo.</span></span>
     </h1>
     <p class="hero-desc" data-l="en">
       Pre-vetted senior professionals from Latin America, aligned to your timezone, your stack, and your delivery standards. <strong>Transparent rates.</strong>
@@ -728,7 +705,7 @@ body.es span[data-l="es"]{display:inline}
           <span class="clutch-star">★</span>
           <span class="clutch-label">on Clutch</span>
         </div>
-        <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:20px;display:block;opacity:0.85;">
+        <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:28px;display:block;opacity:0.85;">
       </div>
     </div>
   </div>
@@ -840,14 +817,13 @@ body.es span[data-l="es"]{display:inline}
           <label class="sel-label" data-l="es">Puesto</label>
           <div class="custom-sel-wrap">
             <select class="custom-sel" id="roleSelect" onchange="updatePricing()">
-              <optgroup data-l="en" label="High Specialization">
+              <optgroup label="High Specialization">
+                <option value="hi_ai">AI Engineer</option>
+                <option value="hi_ml">ML Engineer</option>
                 <option value="hi_python">Python Engineer</option>
                 <option value="hi_golang">Golang Engineer</option>
                 <option value="hi_ruby">Ruby Developer</option>
-                <option value="hi_ios">iOS Developer</option>
                 <option value="hi_devops">DevOps Engineer</option>
-                <option value="hi_ai">AI Engineer</option>
-                <option value="hi_ml">ML Engineer</option>
               </optgroup>
               <optgroup label="ERP / CRM / Enterprise">
                 <option value="erp_sap">SAP Consultant</option>
@@ -864,11 +840,11 @@ body.es span[data-l="es"]{display:inline}
                 <option value="core_qa">QA Automation Engineer</option>
               </optgroup>
               <optgroup label="Digital No-Dev">
-                <option value="nodev_pm">Product Manager</option>
-                <option value="nodev_po">Product Owner</option>
                 <option value="nodev_ux">UX/UI Designer</option>
                 <option value="nodev_growth">Growth Marketer</option>
-                <option value="nodev_qa">QA Manual</option>
+                <option value="nodev_data">Data Analytics</option>
+                <option value="nodev_graphic">Graphic Designer</option>
+                <option value="nodev_content">Content Creator</option>
               </optgroup>
             </select>
             <span class="sel-arrow">▾</span>
@@ -912,20 +888,27 @@ body.es span[data-l="es"]{display:inline}
 
         <!-- savings column -->
         <div class="pricing-col pricing-col-savings">
-          <div class="savings-eyebrow" data-l="en">Monthly savings with Glofy</div>
-          <div class="savings-eyebrow" data-l="es">Ahorro mensual con Glofy</div>
-          <div class="savings-amount" id="savingsAmount">—</div>
-          <div class="savings-year" data-l="en">saved / month vs. direct hire</div>
-          <div class="savings-year" data-l="es">ahorrado / mes vs. contratación directa</div>
-          <div class="savings-annual-box">
-            <div class="savings-annual-label" data-l="en">That's per year</div>
-            <div class="savings-annual-label" data-l="es">Eso es por año</div>
-            <div class="savings-annual-val" id="savingsAnnual">—</div>
-          </div>
+          <div class="savings-eyebrow" data-l="en">Savings with Glofy</div>
+          <div class="savings-eyebrow" data-l="es">Ahorro con Glofy</div>
           <div class="savings-pct-wrap">
+            <div class="savings-pct-grid"></div>
+            <div class="savings-pct-orb"></div>
+            <svg class="savings-pct-svg" viewBox="0 0 340 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;">
+              <line x1="20" y1="30" x2="120" y2="15" stroke="rgba(206,255,0,0.18)" stroke-width="1"/>
+              <line x1="120" y1="15" x2="240" y2="40" stroke="rgba(206,255,0,0.12)" stroke-width="1"/>
+              <line x1="240" y1="40" x2="320" y2="20" stroke="rgba(206,255,0,0.15)" stroke-width="1"/>
+              <line x1="40" y1="160" x2="160" y2="175" stroke="rgba(206,255,0,0.1)" stroke-width="1"/>
+              <line x1="160" y1="175" x2="290" y2="155" stroke="rgba(206,255,0,0.12)" stroke-width="1"/>
+              <circle cx="20" cy="30" r="2.5" fill="rgba(206,255,0,0.5)"/>
+              <circle cx="120" cy="15" r="2" fill="rgba(206,255,0,0.4)"/>
+              <circle cx="240" cy="40" r="2.5" fill="rgba(206,255,0,0.55)"/>
+              <circle cx="320" cy="20" r="2" fill="rgba(206,255,0,0.35)"/>
+              <circle cx="160" cy="175" r="2" fill="rgba(206,255,0,0.4)"/>
+              <circle cx="290" cy="155" r="2.5" fill="rgba(206,255,0,0.5)"/>
+            </svg>
             <div class="savings-pct" id="savingsPct">—</div>
-            <div class="savings-pct-label" data-l="en">less than<br>direct hire</div>
-            <div class="savings-pct-label" data-l="es">menos que<br>contratación directa</div>
+            <div class="savings-pct-label" data-l="en">less than local hire</div>
+            <div class="savings-pct-label" data-l="es">menos que contratación local</div>
           </div>
         </div>
       </div>
@@ -961,13 +944,12 @@ body.es span[data-l="es"]{display:inline}
 // ── RATE DATA: monthly USD, indexed by role key + seniority
 const ROLE_RATES = {
   // High Specialization
+  hi_ai:     { ssr:4800, sr:6500, usRef:{ ssr:11000, sr:15000 } },
+  hi_ml:     { ssr:4800, sr:6500, usRef:{ ssr:10500, sr:14500 } },
   hi_python: { ssr:4500, sr:6000, usRef:{ ssr:9500, sr:13000 } },
   hi_golang: { ssr:4500, sr:6000, usRef:{ ssr:9500, sr:13000 } },
   hi_ruby:   { ssr:4200, sr:5800, usRef:{ ssr:9000, sr:12500 } },
-  hi_ios:    { ssr:4300, sr:5900, usRef:{ ssr:9200, sr:12800 } },
   hi_devops: { ssr:4500, sr:6000, usRef:{ ssr:9800, sr:13500 } },
-  hi_ai:     { ssr:4800, sr:6500, usRef:{ ssr:11000, sr:15000 } },
-  hi_ml:     { ssr:4800, sr:6500, usRef:{ ssr:10500, sr:14500 } },
   // ERP/CRM
   erp_sap:   { ssr:3800, sr:5200, usRef:{ ssr:8000, sr:11000 } },
   erp_sf:    { ssr:3800, sr:5200, usRef:{ ssr:8200, sr:11200 } },
@@ -981,11 +963,11 @@ const ROLE_RATES = {
   core_mob:  { ssr:3200, sr:4400, usRef:{ ssr:7000, sr:9800 } },
   core_qa:   { ssr:2800, sr:3800, usRef:{ ssr:6000, sr:8500 } },
   // Digital No-Dev
-  nodev_pm:  { ssr:2600, sr:3600, usRef:{ ssr:6000, sr:8500 } },
-  nodev_po:  { ssr:2500, sr:3400, usRef:{ ssr:5800, sr:8000 } },
-  nodev_ux:  { ssr:2400, sr:3400, usRef:{ ssr:5500, sr:7800 } },
-  nodev_growth:{ ssr:2400, sr:3200, usRef:{ ssr:5200, sr:7500 } },
-  nodev_qa:  { ssr:2200, sr:3000, usRef:{ ssr:5000, sr:7000 } },
+  nodev_ux:     { ssr:2400, sr:3400, usRef:{ ssr:5500, sr:7800 } },
+  nodev_growth: { ssr:2400, sr:3200, usRef:{ ssr:5200, sr:7500 } },
+  nodev_data:   { ssr:2500, sr:3500, usRef:{ ssr:5600, sr:7900 } },
+  nodev_graphic:{ ssr:2200, sr:3000, usRef:{ ssr:5000, sr:7200 } },
+  nodev_content:{ ssr:2100, sr:2900, usRef:{ ssr:4800, sr:6800 } },
 };
 
 const EUR = 0.92;
@@ -999,29 +981,18 @@ function fmtMoney(val, c){
 
 // animated count-up for savings
 let savingsAnimFrame = null;
-function animateSavings(savMonthly, savAnnual, pct, c){
+function animateSavings(pct){
   if(savingsAnimFrame) cancelAnimationFrame(savingsAnimFrame);
-  const elAmt = document.getElementById('savingsAmount');
   const elPct = document.getElementById('savingsPct');
-  const elAnn = document.getElementById('savingsAnnual');
-  const sym   = c === 'eur' ? '€' : '$';
   const start = performance.now();
   const dur   = 1600;
   function step(now){
     const p    = Math.min((now-start)/dur, 1);
     const ease = 1 - Math.pow(1-p, 5);
-    const m    = Math.floor(ease * savMonthly);
-    const a    = Math.floor(ease * savAnnual);
     const p2   = Math.floor(ease * pct);
-    elAmt.textContent = sym + m.toLocaleString('en-US');
     elPct.textContent = p2 + '%';
-    if(elAnn) elAnn.textContent = sym + a.toLocaleString('en-US');
     if(p < 1) savingsAnimFrame = requestAnimationFrame(step);
-    else {
-      elAmt.textContent = sym + savMonthly.toLocaleString('en-US');
-      elPct.textContent = pct + '%';
-      if(elAnn) elAnn.textContent = sym + savAnnual.toLocaleString('en-US');
-    }
+    else elPct.textContent = pct + '%';
   }
   savingsAnimFrame = requestAnimationFrame(step);
 }
@@ -1036,14 +1007,12 @@ function updatePricing(){
   // convert
   const glofyC = c==='eur' ? Math.round(glofyM*EUR/50)*50 : Math.round(glofyM/50)*50;
   const usC    = c==='eur' ? Math.round(usM*EUR/50)*50   : Math.round(usM/50)*50;
-  // savings
-  const savM   = usC - glofyC;
-  const savY   = savM * 12;
-  const pct    = Math.round((savM / usC) * 100);
+  // savings %
+  const pct    = Math.round(((usC - glofyC) / usC) * 100);
   // update price
   const sym = c==='eur'?'€':'$';
   document.getElementById('glofyPrice').textContent = sym + glofyC.toLocaleString('en-US');
-  animateSavings(savM, savY, pct, c);
+  animateSavings(pct);
 }
 
 function setSeniority(s, btn){
