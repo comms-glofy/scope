@@ -177,6 +177,13 @@ nav{
 .clutch-label{font-size:12px;font-weight:700;color:var(--w70);letter-spacing:0.06em;text-transform:uppercase}
 .flags-row{display:flex;align-items:center;gap:6px}
 .flag{font-size:20px;line-height:1}
+.flags-img{
+  height:28px;
+  width:auto;
+  max-width:100%;
+  display:block;
+  opacity:0.85;
+}
 
 /* ─── STATS BAR ─── */
 .stats-bar{
@@ -490,6 +497,8 @@ body.es span[data-l="es"]{display:inline}
   footer{padding:28px 24px}
   .stats-bar{grid-template-columns:1fr 1fr}
   .stat-item{padding:24px}
+  .hero-trust{flex-direction:column;align-items:flex-start;gap:14px}
+  .flags-img{height:20px}
 }
 /* ─── PRICING CARD (new interactive) ─── */
 .pricing-card{
@@ -705,7 +714,7 @@ body.es span[data-l="es"]{display:inline}
           <span class="clutch-star">★</span>
           <span class="clutch-label">on Clutch</span>
         </div>
-        <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" style="height:28px;display:block;opacity:0.85;">
+        <img src="https://raw.githubusercontent.com/comms-glofy/scope/refs/heads/main/paises.png" alt="Countries we serve" class="flags-img">
       </div>
     </div>
   </div>
