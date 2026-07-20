@@ -467,9 +467,17 @@ footer img{height:22px}
 [data-l="es"]{display:none}
 body.es [data-l="en"]{display:none}
 body.es [data-l="es"]{display:block}
+/* spans inline */
 span[data-l="es"]{display:none}
 body.es span[data-l="en"]{display:none}
 body.es span[data-l="es"]{display:inline}
+/* labels */
+label[data-l="es"]{display:none}
+body.es label[data-l="en"]{display:none}
+body.es label[data-l="es"]{display:block}
+/* inline-flex elements (lang-badge) */
+body.es span.lang-badge[data-l="en"]{display:none!important}
+body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 
 /* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar{width:5px}
@@ -588,7 +596,22 @@ body.es span[data-l="es"]{display:inline}
   transition:all .25s;
 }
 .pcol-price-note{
-  font-size:12px;color:#999;font-weight:500;margin-bottom:28px;
+  font-size:12px;color:#999;font-weight:500;margin-bottom:12px;
+}
+.lang-badge-wrap{ margin-bottom:20px; min-height:24px; }
+.lang-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:0.06em;
+  padding:5px 12px;border-radius:100px;
+  background:rgba(206,255,0,0.12);
+  border:1px solid rgba(206,255,0,0.35);
+  color:#555;
+}
+.lang-badge::before{
+  content:'';display:block;
+  width:8px;height:8px;border-radius:50%;
+  background:#ceff00;
+  flex-shrink:0;
 }
 .pcol-includes-title{
   font-size:10px;font-weight:800;letter-spacing:0.16em;
@@ -792,7 +815,7 @@ body.es span[data-l="es"]{display:inline}
   <div class="tagline-content">
     <p class="tagline-text">
       <span data-l="en">Verified <strong>AI Talent</strong> for Global Teams</span>
-      <span data-l="es">Verified <strong>AI Talent</strong> for Global Teams</span>
+      <span data-l="es">Talento <strong>AI Verificado</strong> para equipos globales</span>
     </p>
     <div class="tagline-line"></div>
   </div>
@@ -862,9 +885,21 @@ body.es span[data-l="es"]{display:inline}
         <div class="sel-group">
           <label class="sel-label" data-l="en">Seniority</label>
           <label class="sel-label" data-l="es">Seniority</label>
-          <div class="seniority-pills">
+          <div class="seniority-pills" id="senPills">
             <button class="sen-btn active" onclick="setSeniority('ssr',this)">Semi-Senior</button>
             <button class="sen-btn" onclick="setSeniority('sr',this)">Senior</button>
+          </div>
+        </div>
+        <div class="sel-group">
+          <label class="sel-label" data-l="en">Language</label>
+          <label class="sel-label" data-l="es">Idioma</label>
+          <div class="seniority-pills" id="langPills">
+            <button class="sen-btn active" onclick="setLangReq('es',this)">
+              <span data-l="en">Spanish</span><span data-l="es">Español</span>
+            </button>
+            <button class="sen-btn" onclick="setLangReq('bi',this)">
+              <span data-l="en">Bilingual</span><span data-l="es">Bilingüe</span>
+            </button>
           </div>
         </div>
       </div>
@@ -882,6 +917,10 @@ body.es span[data-l="es"]{display:inline}
           <div class="pcol-price" id="glofyPrice">$4,500</div>
           <div class="pcol-price-note" data-l="en">All-in — no extras</div>
           <div class="pcol-price-note" data-l="es">Todo incluido — sin extras</div>
+          <div class="lang-badge-wrap">
+            <span class="lang-badge" id="langBadgeEn" data-l="en" style="display:none"></span>
+            <span class="lang-badge" id="langBadgeEs" data-l="es" style="display:none"></span>
+          </div>
 
           <div class="pcol-includes-title" data-l="en">ALL-IN RATE INCLUDES</div>
           <div class="pcol-includes-title" data-l="es">LA TARIFA INCLUYE</div>
@@ -980,7 +1019,8 @@ const ROLE_RATES = {
 };
 
 const EUR = 0.92;
-let curr = 'usd', seniority = 'ssr', lang = 'en';
+const BILINGUAL_PREMIUM = 0.15; // +15% for English-proficient talent
+let curr = 'usd', seniority = 'ssr', lang = 'en', langReq = 'es';
 
 function fmtMoney(val, c){
   const s = c === 'eur' ? '€' : '$';
@@ -1010,7 +1050,9 @@ function updatePricing(){
   const role   = document.getElementById('roleSelect').value;
   const data   = ROLE_RATES[role];
   if(!data) return;
-  const glofyM = data[seniority];
+  const bilingual = langReq === 'bi';
+  const multiplier = bilingual ? (1 + BILINGUAL_PREMIUM) : 1;
+  const glofyM = data[seniority] * multiplier;
   const usM    = data.usRef[seniority];
   const c      = curr;
   // convert
@@ -1022,11 +1064,32 @@ function updatePricing(){
   const sym = c==='eur'?'€':'$';
   document.getElementById('glofyPrice').textContent = sym + glofyC.toLocaleString('en-US');
   animateSavings(pct);
+  // update language badge — show correct one based on active lang
+  const badgeEn = document.getElementById('langBadgeEn');
+  const badgeEs = document.getElementById('langBadgeEs');
+  const isEs = document.body.classList.contains('es');
+  if(bilingual){
+    if(badgeEn){ badgeEn.textContent = 'English-proficient talent'; }
+    if(badgeEs){ badgeEs.textContent = 'Talento bilingüe (EN/ES)'; }
+  } else {
+    if(badgeEn){ badgeEn.textContent = 'Spanish-speaking talent'; }
+    if(badgeEs){ badgeEs.textContent = 'Talento hispanohablante'; }
+  }
+  // visibility controlled by CSS lang rules + this inline override
+  if(badgeEn) badgeEn.style.display = isEs ? 'none' : 'inline-flex';
+  if(badgeEs) badgeEs.style.display = isEs ? 'inline-flex' : 'none';
 }
 
 function setSeniority(s, btn){
   seniority = s;
-  document.querySelectorAll('.sen-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#senPills .sen-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  updatePricing();
+}
+
+function setLangReq(l, btn){
+  langReq = l;
+  document.querySelectorAll('#langPills .sen-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   updatePricing();
 }
@@ -1035,6 +1098,7 @@ function setL(l){
   lang = l;
   document.body.classList.toggle('es', l==='es');
   document.querySelectorAll('#langG .pill-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&l==='en')||(i===1&&l==='es')));
+  updatePricing(); // refresh badge visibility
 }
 
 function setC(c){
@@ -1092,3 +1156,4 @@ updatePricing();
 </script>
 </body>
 </html>
+
