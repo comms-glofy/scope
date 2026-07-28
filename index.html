@@ -989,37 +989,57 @@ body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 </footer>
 
 <script>
-// ── RATE DATA: monthly USD, indexed by role key + seniority
+// ── GOOGLE SHEETS INTEGRATION
+// Cuando el Apps Script esté activo, los rates de abajo se sobreescriben con los del Sheet
+const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbxYgEouEqqfCew907a7Q3rZi7KRks8ltJhMN_z3Le0sDG5trwbNxcIkYUTzuchx99pW6g/exec';
+
+async function loadRatesFromSheets() {
+  if (!RATES_SOURCE) return;
+  try {
+    const res = await fetch(RATES_SOURCE);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const loaded = Object.keys(data).length;
+    if (loaded === 0) throw new Error('Empty response');
+    Object.assign(ROLE_RATES, data);
+    console.log('✅ Rates loaded from Google Sheets (' + loaded + ' roles)');
+    updatePricing();
+  } catch(e) {
+    console.warn('⚠️ Using local rates.', e.message);
+  }
+}
+
+// ── RATE DATA: valores reales del Rate Card (fallback si Sheets no responde)
+// Estructura: sr_bi=Senior Bilingüe | sr_es=Senior Spanish | ssr_bi=SSr Bilingüe | ssr_es=SSr Spanish
 const ROLE_RATES = {
   // High Specialization
-  hi_ai:     { ssr:4800, sr:6500, usRef:{ ssr:11000, sr:15000 } },
-  hi_ml:     { ssr:4800, sr:6500, usRef:{ ssr:10500, sr:14500 } },
-  hi_python: { ssr:4500, sr:6000, usRef:{ ssr:9500, sr:13000 } },
-  hi_golang: { ssr:4500, sr:6000, usRef:{ ssr:9500, sr:13000 } },
-  hi_ruby:   { ssr:4200, sr:5800, usRef:{ ssr:9000, sr:12500 } },
-  hi_devops: { ssr:4500, sr:6000, usRef:{ ssr:9800, sr:13500 } },
-  // ERP/CRM
-  erp_sap:   { ssr:3800, sr:5200, usRef:{ ssr:8000, sr:11000 } },
-  erp_sf:    { ssr:3800, sr:5200, usRef:{ ssr:8200, sr:11200 } },
-  erp_oracle:{ ssr:3600, sr:5000, usRef:{ ssr:7800, sr:10800 } },
-  erp_d365:  { ssr:3600, sr:5000, usRef:{ ssr:7500, sr:10500 } },
-  erp_odoo:  { ssr:3400, sr:4800, usRef:{ ssr:7000, sr:9800 } },
+  hi_ai:      { sr_bi:6400, sr_es:4320, ssr_bi:5600, ssr_es:3520 },
+  hi_ml:      { sr_bi:6400, sr_es:4320, ssr_bi:5600, ssr_es:3520 },
+  hi_python:  { sr_bi:6400, sr_es:3680, ssr_bi:4800, ssr_es:2720 },
+  hi_golang:  { sr_bi:6400, sr_es:4320, ssr_bi:5600, ssr_es:3520 },
+  hi_ruby:    { sr_bi:6400, sr_es:4000, ssr_bi:5600, ssr_es:3200 },
+  hi_devops:  { sr_bi:7200, sr_es:4320, ssr_bi:5600, ssr_es:3520 },
+  // ERP / CRM / Enterprise
+  erp_sap:    { sr_bi:7200, sr_es:4320, ssr_bi:5600, ssr_es:3520 },
+  erp_sf:     { sr_bi:6400, sr_es:4000, ssr_bi:4800, ssr_es:3200 },
+  erp_oracle: { sr_bi:6400, sr_es:3680, ssr_bi:4800, ssr_es:2720 },
+  erp_d365:   { sr_bi:6080, sr_es:4000, ssr_bi:4800, ssr_es:3200 },
+  erp_odoo:   { sr_bi:5600, sr_es:3680, ssr_bi:4000, ssr_es:2720 },
   // Core Tech
-  core_fs:   { ssr:3200, sr:4400, usRef:{ ssr:7200, sr:10000 } },
-  core_be:   { ssr:3000, sr:4200, usRef:{ ssr:7000, sr:9800 } },
-  core_fe:   { ssr:2900, sr:4000, usRef:{ ssr:6500, sr:9200 } },
-  core_mob:  { ssr:3200, sr:4400, usRef:{ ssr:7000, sr:9800 } },
-  core_qa:   { ssr:2800, sr:3800, usRef:{ ssr:6000, sr:8500 } },
+  core_fs:    { sr_bi:6080, sr_es:4000, ssr_bi:4800, ssr_es:3200 },
+  core_be:    { sr_bi:6080, sr_es:3680, ssr_bi:4480, ssr_es:2720 },
+  core_fe:    { sr_bi:6080, sr_es:4000, ssr_bi:4800, ssr_es:3200 },
+  core_mob:   { sr_bi:5760, sr_es:4000, ssr_bi:4800, ssr_es:3200 },
+  core_qa:    { sr_bi:5120, sr_es:3520, ssr_bi:3520, ssr_es:2400 },
   // Digital No-Dev
-  nodev_ux:     { ssr:2400, sr:3400, usRef:{ ssr:5500, sr:7800 } },
-  nodev_growth: { ssr:2400, sr:3200, usRef:{ ssr:5200, sr:7500 } },
-  nodev_data:   { ssr:2500, sr:3500, usRef:{ ssr:5600, sr:7900 } },
-  nodev_graphic:{ ssr:2200, sr:3000, usRef:{ ssr:5000, sr:7200 } },
-  nodev_content:{ ssr:2100, sr:2900, usRef:{ ssr:4800, sr:6800 } },
+  nodev_ux:      { sr_bi:5120, sr_es:3200, ssr_bi:3520, ssr_es:2400 },
+  nodev_growth:  { sr_bi:5120, sr_es:3200, ssr_bi:3520, ssr_es:2400 },
+  nodev_data:    { sr_bi:6080, sr_es:4320, ssr_bi:4800, ssr_es:3520 },
+  nodev_graphic: { sr_bi:5120, sr_es:3200, ssr_bi:3520, ssr_es:2400 },
+  nodev_content: { sr_bi:5120, sr_es:3200, ssr_bi:3520, ssr_es:2400 },
 };
 
 const EUR = 0.92;
-const BILINGUAL_PREMIUM = 0.15; // +15% for English-proficient talent
 let curr = 'usd', seniority = 'ssr', lang = 'en', langReq = 'es';
 
 function fmtMoney(val, c){
@@ -1047,35 +1067,38 @@ function animateSavings(pct){
 }
 
 function updatePricing(){
-  const role   = document.getElementById('roleSelect').value;
-  const data   = ROLE_RATES[role];
+  const role = document.getElementById('roleSelect').value;
+  const data = ROLE_RATES[role];
   if(!data) return;
-  const bilingual = langReq === 'bi';
-  const multiplier = bilingual ? (1 + BILINGUAL_PREMIUM) : 1;
-  const glofyM = data[seniority] * multiplier;
-  const usM    = data.usRef[seniority];
-  const c      = curr;
-  // convert
-  const glofyC = c==='eur' ? Math.round(glofyM*EUR/50)*50 : Math.round(glofyM/50)*50;
-  const usC    = c==='eur' ? Math.round(usM*EUR/50)*50   : Math.round(usM/50)*50;
-  // savings %
-  const pct    = Math.round(((usC - glofyC) / usC) * 100);
-  // update price
-  const sym = c==='eur'?'€':'$';
+
+  // clave: seniority (sr/ssr) + '_' + idioma (bi/es) → ej: "sr_bi", "ssr_es"
+  const rateKey = seniority + '_' + langReq;
+  const glofyM  = data[rateKey];
+  if(!glofyM) return;
+
+  const c   = curr;
+  const sym = c === 'eur' ? '€' : '$';
+  const glofyC = c === 'eur'
+    ? Math.round(glofyM * EUR / 50) * 50
+    : Math.round(glofyM / 50) * 50;
+
   document.getElementById('glofyPrice').textContent = sym + glofyC.toLocaleString('en-US');
+
+  // % ahorro vs referencia local hire estimada
+  const localRef = { sr_bi:14000, sr_es:9000, ssr_bi:11000, ssr_es:7500 };
+  const refC = c === 'eur'
+    ? Math.round((localRef[rateKey]||10000) * EUR / 50)*50
+    : (localRef[rateKey]||10000);
+  const pct = Math.max(0, Math.round(((refC - glofyC) / refC) * 100));
   animateSavings(pct);
-  // update language badge — show correct one based on active lang
+
+  // badge de idioma
   const badgeEn = document.getElementById('langBadgeEn');
   const badgeEs = document.getElementById('langBadgeEs');
-  const isEs = document.body.classList.contains('es');
-  if(bilingual){
-    if(badgeEn){ badgeEn.textContent = 'English-proficient talent'; }
-    if(badgeEs){ badgeEs.textContent = 'Talento bilingüe (EN/ES)'; }
-  } else {
-    if(badgeEn){ badgeEn.textContent = 'Spanish-speaking talent'; }
-    if(badgeEs){ badgeEs.textContent = 'Talento hispanohablante'; }
-  }
-  // visibility controlled by CSS lang rules + this inline override
+  const isEs    = document.body.classList.contains('es');
+  const bilingual = langReq === 'bi';
+  if(badgeEn) badgeEn.textContent = bilingual ? 'English-proficient talent' : 'Spanish-speaking talent';
+  if(badgeEs) badgeEs.textContent = bilingual ? 'Talento bilingüe (EN/ES)' : 'Talento hispanohablante';
   if(badgeEn) badgeEn.style.display = isEs ? 'none' : 'inline-flex';
   if(badgeEs) badgeEs.style.display = isEs ? 'inline-flex' : 'none';
 }
@@ -1153,7 +1176,7 @@ function setC(c){
 
 // Init
 updatePricing();
+loadRatesFromSheets();
 </script>
 </body>
 </html>
-
