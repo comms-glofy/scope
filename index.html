@@ -994,21 +994,33 @@ const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbyhF8GoecZFBl9rui1
 
 async function loadRatesFromSheets() {
   if (!RATES_SOURCE) return;
-  try {
-    // allorigins actúa de proxy: fetchea la URL, agrega CORS headers, devuelve el contenido
-    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(RATES_SOURCE);
-    const res   = await fetch(proxy);
-    if (!res.ok) throw new Error('Proxy HTTP ' + res.status);
-    const wrapper = await res.json();          // allorigins devuelve { contents: "..." }
-    const data    = JSON.parse(wrapper.contents);
-    const loaded  = Object.keys(data).length;
-    if (loaded === 0) throw new Error('Empty data');
-    Object.assign(ROLE_RATES, data);
-    console.log('✅ Rates loaded from Google Sheets (' + loaded + ' roles)');
-    updatePricing();
-  } catch(e) {
-    console.warn('⚠️ Using local rates.', e.message);
+
+  // Lista de proxies a intentar en orden
+  const proxies = [
+    url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+  ];
+
+  for (const makeProxy of proxies) {
+    try {
+      const proxyUrl = makeProxy(RATES_SOURCE);
+      const res = await fetch(proxyUrl);
+      if (!res.ok) continue;
+      const body = await res.json();
+      // allorigins wrappea en { contents: "..." }, corsproxy devuelve directo
+      const raw  = typeof body === 'string' ? body : (body.contents || JSON.stringify(body));
+      const data = JSON.parse(raw);
+      const loaded = Object.keys(data).length;
+      if (loaded === 0) continue;
+      Object.assign(ROLE_RATES, data);
+      console.log('✅ Rates loaded from Google Sheets (' + loaded + ' roles) via ' + proxyUrl.split('?')[0]);
+      updatePricing();
+      return; // éxito, salir
+    } catch(e) {
+      console.warn('Proxy failed, trying next...', e.message);
+    }
   }
+  console.warn('⚠️ All proxies failed, using local rates.');
 }
 
 // ── RATE DATA: valores reales del Rate Card (fallback si Sheets no responde)
@@ -1046,7 +1058,7 @@ let curr = 'usd', seniority = 'ssr', lang = 'en', langReq = 'es';
 
 function fmtMoney(val, c){
   const s = c === 'eur' ? '€' : '$';
-  const v = c === 'eur' ? Math.round(val * EUR / 50)*50 : Math.round(val/50)*50;
+  const v = c === 'eur' ? Math.round(val * EUR / 10)*10 : val;
   return s + v.toLocaleString('en-US');
 }
 
@@ -1081,8 +1093,8 @@ function updatePricing(){
   const c   = curr;
   const sym = c === 'eur' ? '€' : '$';
   const glofyC = c === 'eur'
-    ? Math.round(glofyM * EUR / 50) * 50
-    : Math.round(glofyM / 50) * 50;
+    ? Math.round(glofyM * EUR / 10) * 10
+    : glofyM;
 
   document.getElementById('glofyPrice').textContent = sym + glofyC.toLocaleString('en-US');
 
@@ -1182,3 +1194,4 @@ loadRatesFromSheets();
 </script>
 </body>
 </html>
+
