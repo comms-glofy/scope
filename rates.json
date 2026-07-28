@@ -1,0 +1,296 @@
+{
+  "hi_ai": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 4320,
+      "ssr_bi": 5600,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3670,
+      "ssr_bi": 4760,
+      "ssr_es": 2990
+    }
+  },
+  "hi_ml": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 4320,
+      "ssr_bi": 5600,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3670,
+      "ssr_bi": 4760,
+      "ssr_es": 2990
+    }
+  },
+  "hi_python": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 3680,
+      "ssr_bi": 4800,
+      "ssr_es": 2720
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3130,
+      "ssr_bi": 4080,
+      "ssr_es": 2310
+    }
+  },
+  "hi_golang": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 4320,
+      "ssr_bi": 5600,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3670,
+      "ssr_bi": 4760,
+      "ssr_es": 2990
+    }
+  },
+  "hi_ruby": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 4000,
+      "ssr_bi": 5600,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3400,
+      "ssr_bi": 4760,
+      "ssr_es": 2720
+    }
+  },
+  "hi_devops": {
+    "usd": {
+      "sr_bi": 7200,
+      "sr_es": 4320,
+      "ssr_bi": 5600,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 6120,
+      "sr_es": 3670,
+      "ssr_bi": 4760,
+      "ssr_es": 2990
+    }
+  },
+  "erp_sap": {
+    "usd": {
+      "sr_bi": 7200,
+      "sr_es": 4320,
+      "ssr_bi": 5600,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 6120,
+      "sr_es": 3670,
+      "ssr_bi": 4760,
+      "ssr_es": 2990
+    }
+  },
+  "erp_sf": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 4000,
+      "ssr_bi": 4800,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3400,
+      "ssr_bi": 4080,
+      "ssr_es": 2720
+    }
+  },
+  "erp_oracle": {
+    "usd": {
+      "sr_bi": 6400,
+      "sr_es": 3680,
+      "ssr_bi": 4800,
+      "ssr_es": 2720
+    },
+    "eur": {
+      "sr_bi": 5440,
+      "sr_es": 3130,
+      "ssr_bi": 4080,
+      "ssr_es": 2310
+    }
+  },
+  "erp_d365": {
+    "usd": {
+      "sr_bi": 6080,
+      "sr_es": 4000,
+      "ssr_bi": 4800,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 5170,
+      "sr_es": 3400,
+      "ssr_bi": 4080,
+      "ssr_es": 2720
+    }
+  },
+  "erp_odoo": {
+    "usd": {
+      "sr_bi": 5600,
+      "sr_es": 3680,
+      "ssr_bi": 4000,
+      "ssr_es": 2720
+    },
+    "eur": {
+      "sr_bi": 4760,
+      "sr_es": 3130,
+      "ssr_bi": 3400,
+      "ssr_es": 2310
+    }
+  },
+  "core_fs": {
+    "usd": {
+      "sr_bi": 6080,
+      "sr_es": 4000,
+      "ssr_bi": 4800,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 5170,
+      "sr_es": 3400,
+      "ssr_bi": 4080,
+      "ssr_es": 2720
+    }
+  },
+  "core_be": {
+    "usd": {
+      "sr_bi": 6080,
+      "sr_es": 3680,
+      "ssr_bi": 4480,
+      "ssr_es": 2720
+    },
+    "eur": {
+      "sr_bi": 5170,
+      "sr_es": 3130,
+      "ssr_bi": 3810,
+      "ssr_es": 2310
+    }
+  },
+  "core_fe": {
+    "usd": {
+      "sr_bi": 6080,
+      "sr_es": 4000,
+      "ssr_bi": 4800,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 5170,
+      "sr_es": 3400,
+      "ssr_bi": 4080,
+      "ssr_es": 2720
+    }
+  },
+  "core_mob": {
+    "usd": {
+      "sr_bi": 5760,
+      "sr_es": 4000,
+      "ssr_bi": 4800,
+      "ssr_es": 3200
+    },
+    "eur": {
+      "sr_bi": 4900,
+      "sr_es": 3400,
+      "ssr_bi": 4080,
+      "ssr_es": 2720
+    }
+  },
+  "core_qa": {
+    "usd": {
+      "sr_bi": 5120,
+      "sr_es": 3520,
+      "ssr_bi": 3520,
+      "ssr_es": 2400
+    },
+    "eur": {
+      "sr_bi": 4350,
+      "sr_es": 2990,
+      "ssr_bi": 2990,
+      "ssr_es": 2040
+    }
+  },
+  "nodev_ux": {
+    "usd": {
+      "sr_bi": 5120,
+      "sr_es": 3200,
+      "ssr_bi": 3520,
+      "ssr_es": 2400
+    },
+    "eur": {
+      "sr_bi": 4350,
+      "sr_es": 2720,
+      "ssr_bi": 2990,
+      "ssr_es": 2040
+    }
+  },
+  "nodev_growth": {
+    "usd": {
+      "sr_bi": 5120,
+      "sr_es": 3200,
+      "ssr_bi": 3520,
+      "ssr_es": 2400
+    },
+    "eur": {
+      "sr_bi": 4350,
+      "sr_es": 2720,
+      "ssr_bi": 2990,
+      "ssr_es": 2040
+    }
+  },
+  "nodev_data": {
+    "usd": {
+      "sr_bi": 6080,
+      "sr_es": 4320,
+      "ssr_bi": 4800,
+      "ssr_es": 3520
+    },
+    "eur": {
+      "sr_bi": 5170,
+      "sr_es": 3670,
+      "ssr_bi": 4080,
+      "ssr_es": 2990
+    }
+  },
+  "nodev_graphic": {
+    "usd": {
+      "sr_bi": 5120,
+      "sr_es": 3200,
+      "ssr_bi": 3520,
+      "ssr_es": 2400
+    },
+    "eur": {
+      "sr_bi": 4350,
+      "sr_es": 2720,
+      "ssr_bi": 2990,
+      "ssr_es": 2040
+    }
+  },
+  "nodev_content": {
+    "usd": {
+      "sr_bi": 5120,
+      "sr_es": 3200,
+      "ssr_bi": 3520,
+      "ssr_es": 2400
+    },
+    "eur": {
+      "sr_bi": 4350,
+      "sr_es": 2720,
+      "ssr_bi": 2990,
+      "ssr_es": 2040
+    }
+  }
+}
