@@ -989,32 +989,26 @@ body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 </footer>
 
 <script>
-// ── GOOGLE SHEETS INTEGRATION (JSONP — sin restricción CORS)
+// ── GOOGLE SHEETS INTEGRATION (via allorigins proxy — resuelve CORS + redirect de Google)
 const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbyhF8GoecZFBl9rui1yP3uAZ51jAy7_FytaWu6w7yC1uTEOkxmLfeR5-bLDFJqmsm1B5Q/exec';
 
-function loadRatesFromSheets() {
+async function loadRatesFromSheets() {
   if (!RATES_SOURCE) return;
-
-  // Callback global que el script invocará
-  window.glofyRatesCallback = function(data) {
-    const loaded = Object.keys(data).length;
-    if (loaded === 0) { console.warn('⚠️ Sheets returned empty data'); return; }
+  try {
+    // allorigins actúa de proxy: fetchea la URL, agrega CORS headers, devuelve el contenido
+    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(RATES_SOURCE);
+    const res   = await fetch(proxy);
+    if (!res.ok) throw new Error('Proxy HTTP ' + res.status);
+    const wrapper = await res.json();          // allorigins devuelve { contents: "..." }
+    const data    = JSON.parse(wrapper.contents);
+    const loaded  = Object.keys(data).length;
+    if (loaded === 0) throw new Error('Empty data');
     Object.assign(ROLE_RATES, data);
     console.log('✅ Rates loaded from Google Sheets (' + loaded + ' roles)');
     updatePricing();
-    // Limpiar el tag script
-    const el = document.getElementById('jsonp-rates');
-    if (el) el.remove();
-  };
-
-  // Inyectar script tag — evita CORS completamente
-  const script  = document.createElement('script');
-  script.id  = 'jsonp-rates';
-  script.src = RATES_SOURCE + '?callback=glofyRatesCallback&t=' + Date.now();
-  script.onerror = function() {
-    console.warn('⚠️ Could not load from Sheets, using local rates.');
-  };
-  document.head.appendChild(script);
+  } catch(e) {
+    console.warn('⚠️ Using local rates.', e.message);
+  }
 }
 
 // ── RATE DATA: valores reales del Rate Card (fallback si Sheets no responde)
