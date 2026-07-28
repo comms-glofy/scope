@@ -989,9 +989,38 @@ body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 </footer>
 
 <script>
-// ── GOOGLE SHEETS — desactivado hasta limpiar el Sheet (quitar "USD " de las celdas)
-const RATES_SOURCE = null;
-async function loadRatesFromSheets() { /* activar cuando Sheet tenga números puros */ }
+// ── GOOGLE SHEETS INTEGRATION
+const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbyhF8GoecZFBl9rui1yP3uAZ51jAy7_FytaWu6w7yC1uTEOkxmLfeR5-bLDFJqmsm1B5Q/exec';
+
+async function loadRatesFromSheets() {
+  if (!RATES_SOURCE) return;
+  const proxies = [
+    url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+    url => `https://thingproxy.freeboard.io/fetch/${url}`,
+  ];
+  for (const makeProxy of proxies) {
+    try {
+      const res = await fetch(makeProxy(RATES_SOURCE), { signal: AbortSignal.timeout(6000) });
+      if (!res.ok) continue;
+      const body = await res.json();
+      // allorigins wrappea en { contents }, los otros devuelven directo
+      const raw  = body && body.contents ? body.contents : JSON.stringify(body);
+      const data = JSON.parse(raw);
+      if (!data || Object.keys(data).length === 0) continue;
+      // validar que tiene la estructura correcta { hi_ai: { usd: {...}, eur: {...} } }
+      const first = Object.values(data)[0];
+      if (!first.usd && !first.sr_bi) continue; // estructura inválida
+      Object.assign(ROLE_RATES, data);
+      console.log('✅ Rates loaded from Google Sheets (' + Object.keys(data).length + ' roles)');
+      updatePricing();
+      return;
+    } catch(e) {
+      console.warn('Proxy failed:', e.message);
+    }
+  }
+  console.warn('⚠️ All proxies failed, using local rates.');
+}
 
 // ── RATES — USD y EUR exactos de los CSV
 const ROLE_RATES = {
