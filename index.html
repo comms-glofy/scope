@@ -989,24 +989,32 @@ body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 </footer>
 
 <script>
-// ── GOOGLE SHEETS INTEGRATION
-// Cuando el Apps Script esté activo, los rates de abajo se sobreescriben con los del Sheet
-const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbxYgEouEqqfCew907a7Q3rZi7KRks8ltJhMN_z3Le0sDG5trwbNxcIkYUTzuchx99pW6g/exec';
+// ── GOOGLE SHEETS INTEGRATION (JSONP — sin restricción CORS)
+const RATES_SOURCE = 'https://script.google.com/macros/s/AKfycbyhF8GoecZFBl9rui1yP3uAZ51jAy7_FytaWu6w7yC1uTEOkxmLfeR5-bLDFJqmsm1B5Q/exec';
 
-async function loadRatesFromSheets() {
+function loadRatesFromSheets() {
   if (!RATES_SOURCE) return;
-  try {
-    const res = await fetch(RATES_SOURCE);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
+
+  // Callback global que el script invocará
+  window.glofyRatesCallback = function(data) {
     const loaded = Object.keys(data).length;
-    if (loaded === 0) throw new Error('Empty response');
+    if (loaded === 0) { console.warn('⚠️ Sheets returned empty data'); return; }
     Object.assign(ROLE_RATES, data);
     console.log('✅ Rates loaded from Google Sheets (' + loaded + ' roles)');
     updatePricing();
-  } catch(e) {
-    console.warn('⚠️ Using local rates.', e.message);
-  }
+    // Limpiar el tag script
+    const el = document.getElementById('jsonp-rates');
+    if (el) el.remove();
+  };
+
+  // Inyectar script tag — evita CORS completamente
+  const script  = document.createElement('script');
+  script.id  = 'jsonp-rates';
+  script.src = RATES_SOURCE + '?callback=glofyRatesCallback&t=' + Date.now();
+  script.onerror = function() {
+    console.warn('⚠️ Could not load from Sheets, using local rates.');
+  };
+  document.head.appendChild(script);
 }
 
 // ── RATE DATA: valores reales del Rate Card (fallback si Sheets no responde)
