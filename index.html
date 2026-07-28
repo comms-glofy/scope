@@ -991,7 +991,7 @@ body.es span.lang-badge[data-l="es"]{display:inline-flex!important}
 <script>
 // ── GOOGLE SHEETS → GitHub → Landing
 // El Apps Script escribe rates.json en el repo; acá lo leemos directo (sin CORS)
-const RATES_SOURCE = 'https://cdn.jsdelivr.net/gh/comms-glofy/scope@main/rates.json';
+const RATES_SOURCE = 'https://raw.githubusercontent.com/comms-glofy/scope/main/rates.json';
 
 async function loadRatesFromSheets() {
   try {
