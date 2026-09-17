@@ -7,10 +7,10 @@
       "ssr_es": 3888
     },
     "eur": {
-      "sr_bi": 5850,
-      "sr_es": 4700,
-      "ssr_bi": 4800,
-      "ssr_es": 3380
+      "sr_bi": 6720,
+      "sr_es": 5400,
+      "ssr_bi": 5520,
+      "ssr_es": 3888
     }
   },
   "hi_ml": {
@@ -21,10 +21,10 @@
       "ssr_es": 3672
     },
     "eur": {
-      "sr_bi": 5640,
-      "sr_es": 4320,
-      "ssr_bi": 4180,
-      "ssr_es": 3190
+      "sr_bi": 6480,
+      "sr_es": 4968,
+      "ssr_bi": 4800,
+      "ssr_es": 3672
     }
   },
   "hi_python": {
@@ -35,10 +35,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 5850,
-      "sr_es": 3760,
-      "ssr_bi": 4800,
-      "ssr_es": 2820
+      "sr_bi": 6720,
+      "sr_es": 4320,
+      "ssr_bi": 5520,
+      "ssr_es": 3240
     }
   },
   "hi_golang": {
@@ -49,10 +49,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 5220,
-      "sr_es": 3760,
-      "ssr_bi": 4590,
-      "ssr_es": 2820
+      "sr_bi": 6000,
+      "sr_es": 4320,
+      "ssr_bi": 5280,
+      "ssr_es": 3240
     }
   },
   "hi_ruby": {
@@ -63,10 +63,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 5220,
-      "sr_es": 3760,
-      "ssr_bi": 4590,
-      "ssr_es": 2820
+      "sr_bi": 6000,
+      "sr_es": 4320,
+      "ssr_bi": 5280,
+      "ssr_es": 3240
     }
   },
   "hi_devops": {
@@ -77,10 +77,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 5220,
-      "sr_es": 3760,
-      "ssr_bi": 4590,
-      "ssr_es": 2820
+      "sr_bi": 6000,
+      "sr_es": 4320,
+      "ssr_bi": 5280,
+      "ssr_es": 3240
     }
   },
   "erp_sap": {
@@ -91,10 +91,10 @@
       "ssr_es": 2592
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2820,
-      "ssr_bi": 2300,
-      "ssr_es": 2260
+      "sr_bi": 4320,
+      "sr_es": 3240,
+      "ssr_bi": 2640,
+      "ssr_es": 2592
     }
   },
   "erp_sf": {
@@ -105,10 +105,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 4800,
-      "sr_es": 3380,
-      "ssr_bi": 3760,
-      "ssr_es": 2820
+      "sr_bi": 5520,
+      "sr_es": 3888,
+      "ssr_bi": 4320,
+      "ssr_es": 3240
     }
   },
   "erp_oracle": {
@@ -119,10 +119,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 3130,
-      "sr_es": 2260,
-      "ssr_bi": 2510,
-      "ssr_es": 1880
+      "sr_bi": 3600,
+      "sr_es": 2592,
+      "ssr_bi": 2880,
+      "ssr_es": 2160
     }
   },
   "erp_d365": {
@@ -133,10 +133,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 4180,
-      "sr_es": 3760,
-      "ssr_bi": 3130,
-      "ssr_es": 2820
+      "sr_bi": 4800,
+      "sr_es": 4320,
+      "ssr_bi": 3600,
+      "ssr_es": 3240
     }
   },
   "erp_odoo": {
@@ -147,10 +147,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 2510,
-      "sr_es": 2260,
-      "ssr_bi": 2090,
-      "ssr_es": 1880
+      "sr_bi": 2880,
+      "sr_es": 2592,
+      "ssr_bi": 2400,
+      "ssr_es": 2160
     }
   },
   "core_fs": {
@@ -161,10 +161,10 @@
       "ssr_es": 2592
     },
     "eur": {
-      "sr_bi": 4800,
-      "sr_es": 3380,
-      "ssr_bi": 3760,
-      "ssr_es": 2260
+      "sr_bi": 5520,
+      "sr_es": 3888,
+      "ssr_bi": 4320,
+      "ssr_es": 2592
     }
   },
   "core_be": {
@@ -175,10 +175,10 @@
       "ssr_es": 2808
     },
     "eur": {
-      "sr_bi": 4800,
-      "sr_es": 3190,
-      "ssr_bi": 3760,
-      "ssr_es": 2440
+      "sr_bi": 5520,
+      "sr_es": 3672,
+      "ssr_bi": 4320,
+      "ssr_es": 2808
     }
   },
   "core_fe": {
@@ -189,10 +189,10 @@
       "ssr_es": 2808
     },
     "eur": {
-      "sr_bi": 4180,
-      "sr_es": 3190,
-      "ssr_bi": 3130,
-      "ssr_es": 2440
+      "sr_bi": 4800,
+      "sr_es": 3672,
+      "ssr_bi": 3600,
+      "ssr_es": 2808
     }
   },
   "core_mob": {
@@ -203,10 +203,10 @@
       "ssr_es": 3024
     },
     "eur": {
-      "sr_bi": 4800,
-      "sr_es": 3380,
-      "ssr_bi": 3550,
-      "ssr_es": 2630
+      "sr_bi": 5520,
+      "sr_es": 3888,
+      "ssr_bi": 4080,
+      "ssr_es": 3024
     }
   },
   "core_qa": {
@@ -217,10 +217,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2440,
-      "ssr_bi": 3130,
-      "ssr_es": 1880
+      "sr_bi": 4320,
+      "sr_es": 2808,
+      "ssr_bi": 3600,
+      "ssr_es": 2160
     }
   },
   "nodev_ux": {
@@ -231,10 +231,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2440,
-      "ssr_bi": 3130,
-      "ssr_es": 1880
+      "sr_bi": 4320,
+      "sr_es": 2808,
+      "ssr_bi": 3600,
+      "ssr_es": 2160
     }
   },
   "nodev_growth": {
@@ -245,10 +245,10 @@
       "ssr_es": 2592
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2820,
-      "ssr_bi": 2510,
-      "ssr_es": 2260
+      "sr_bi": 4320,
+      "sr_es": 3240,
+      "ssr_bi": 2880,
+      "ssr_es": 2592
     }
   },
   "nodev_data": {
@@ -259,10 +259,10 @@
       "ssr_es": 3240
     },
     "eur": {
-      "sr_bi": 4800,
-      "sr_es": 3380,
-      "ssr_bi": 3760,
-      "ssr_es": 2820
+      "sr_bi": 5520,
+      "sr_es": 3888,
+      "ssr_bi": 4320,
+      "ssr_es": 3240
     }
   },
   "nodev_graphic": {
@@ -273,10 +273,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2440,
-      "ssr_bi": 3130,
-      "ssr_es": 1880
+      "sr_bi": 4320,
+      "sr_es": 2808,
+      "ssr_bi": 3600,
+      "ssr_es": 2160
     }
   },
   "nodev_content": {
@@ -287,10 +287,10 @@
       "ssr_es": 2160
     },
     "eur": {
-      "sr_bi": 3760,
-      "sr_es": 2440,
-      "ssr_bi": 3130,
-      "ssr_es": 1880
+      "sr_bi": 4320,
+      "sr_es": 2808,
+      "ssr_bi": 3600,
+      "ssr_es": 2160
     }
   }
 }
