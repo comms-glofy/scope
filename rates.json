@@ -8,9 +8,9 @@
     },
     "eur": {
       "sr_bi": 5850,
-      "sr_es": 5220,
+      "sr_es": 4700,
       "ssr_bi": 4800,
-      "ssr_es": 3760
+      "ssr_es": 3380
     }
   },
   "hi_ml": {
@@ -22,9 +22,9 @@
     },
     "eur": {
       "sr_bi": 5640,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 4180,
-      "ssr_es": 3550
+      "ssr_es": 3190
     }
   },
   "hi_python": {
@@ -36,9 +36,9 @@
     },
     "eur": {
       "sr_bi": 5850,
-      "sr_es": 4180,
+      "sr_es": 3760,
       "ssr_bi": 4800,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "hi_golang": {
@@ -50,9 +50,9 @@
     },
     "eur": {
       "sr_bi": 5220,
-      "sr_es": 4180,
+      "sr_es": 3760,
       "ssr_bi": 4590,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "hi_ruby": {
@@ -64,9 +64,9 @@
     },
     "eur": {
       "sr_bi": 5220,
-      "sr_es": 4180,
+      "sr_es": 3760,
       "ssr_bi": 4590,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "hi_devops": {
@@ -78,9 +78,9 @@
     },
     "eur": {
       "sr_bi": 5220,
-      "sr_es": 4180,
+      "sr_es": 3760,
       "ssr_bi": 4590,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "erp_sap": {
@@ -92,9 +92,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 3130,
+      "sr_es": 2820,
       "ssr_bi": 2300,
-      "ssr_es": 2510
+      "ssr_es": 2260
     }
   },
   "erp_sf": {
@@ -106,9 +106,9 @@
     },
     "eur": {
       "sr_bi": 4800,
-      "sr_es": 3760,
+      "sr_es": 3380,
       "ssr_bi": 3760,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "erp_oracle": {
@@ -120,9 +120,9 @@
     },
     "eur": {
       "sr_bi": 3130,
-      "sr_es": 2510,
+      "sr_es": 2260,
       "ssr_bi": 2510,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   },
   "erp_d365": {
@@ -134,9 +134,9 @@
     },
     "eur": {
       "sr_bi": 4180,
-      "sr_es": 4180,
+      "sr_es": 3760,
       "ssr_bi": 3130,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "erp_odoo": {
@@ -148,9 +148,9 @@
     },
     "eur": {
       "sr_bi": 2510,
-      "sr_es": 2510,
+      "sr_es": 2260,
       "ssr_bi": 2090,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   },
   "core_fs": {
@@ -162,9 +162,9 @@
     },
     "eur": {
       "sr_bi": 4800,
-      "sr_es": 3760,
+      "sr_es": 3380,
       "ssr_bi": 3760,
-      "ssr_es": 2510
+      "ssr_es": 2260
     }
   },
   "core_be": {
@@ -176,9 +176,9 @@
     },
     "eur": {
       "sr_bi": 4800,
-      "sr_es": 3550,
+      "sr_es": 3190,
       "ssr_bi": 3760,
-      "ssr_es": 2710
+      "ssr_es": 2440
     }
   },
   "core_fe": {
@@ -190,9 +190,9 @@
     },
     "eur": {
       "sr_bi": 4180,
-      "sr_es": 3550,
+      "sr_es": 3190,
       "ssr_bi": 3130,
-      "ssr_es": 2710
+      "ssr_es": 2440
     }
   },
   "core_mob": {
@@ -204,9 +204,9 @@
     },
     "eur": {
       "sr_bi": 4800,
-      "sr_es": 3760,
+      "sr_es": 3380,
       "ssr_bi": 3550,
-      "ssr_es": 2920
+      "ssr_es": 2630
     }
   },
   "core_qa": {
@@ -218,9 +218,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 2710,
+      "sr_es": 2440,
       "ssr_bi": 3130,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   },
   "nodev_ux": {
@@ -232,9 +232,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 2710,
+      "sr_es": 2440,
       "ssr_bi": 3130,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   },
   "nodev_growth": {
@@ -246,9 +246,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 3130,
+      "sr_es": 2820,
       "ssr_bi": 2510,
-      "ssr_es": 2510
+      "ssr_es": 2260
     }
   },
   "nodev_data": {
@@ -260,9 +260,9 @@
     },
     "eur": {
       "sr_bi": 4800,
-      "sr_es": 3760,
+      "sr_es": 3380,
       "ssr_bi": 3760,
-      "ssr_es": 3130
+      "ssr_es": 2820
     }
   },
   "nodev_graphic": {
@@ -274,9 +274,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 2710,
+      "sr_es": 2440,
       "ssr_bi": 3130,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   },
   "nodev_content": {
@@ -288,9 +288,9 @@
     },
     "eur": {
       "sr_bi": 3760,
-      "sr_es": 2710,
+      "sr_es": 2440,
       "ssr_bi": 3130,
-      "ssr_es": 2090
+      "ssr_es": 1880
     }
   }
 }
