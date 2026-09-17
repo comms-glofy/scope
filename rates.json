@@ -2,9 +2,9 @@
   "hi_ai": {
     "usd": {
       "sr_bi": 6720,
-      "sr_es": 6000,
+      "sr_es": 5400,
       "ssr_bi": 5520,
-      "ssr_es": 4320
+      "ssr_es": 3888
     },
     "eur": {
       "sr_bi": 5850,
@@ -16,9 +16,9 @@
   "hi_ml": {
     "usd": {
       "sr_bi": 6480,
-      "sr_es": 5520,
+      "sr_es": 4968,
       "ssr_bi": 4800,
-      "ssr_es": 4080
+      "ssr_es": 3672
     },
     "eur": {
       "sr_bi": 5640,
@@ -30,9 +30,9 @@
   "hi_python": {
     "usd": {
       "sr_bi": 6720,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 5520,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 5850,
@@ -44,9 +44,9 @@
   "hi_golang": {
     "usd": {
       "sr_bi": 6000,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 5280,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 5220,
@@ -58,9 +58,9 @@
   "hi_ruby": {
     "usd": {
       "sr_bi": 6000,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 5280,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 5220,
@@ -72,9 +72,9 @@
   "hi_devops": {
     "usd": {
       "sr_bi": 6000,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 5280,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 5220,
@@ -86,9 +86,9 @@
   "erp_sap": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3600,
+      "sr_es": 3240,
       "ssr_bi": 2640,
-      "ssr_es": 2880
+      "ssr_es": 2592
     },
     "eur": {
       "sr_bi": 3760,
@@ -100,9 +100,9 @@
   "erp_sf": {
     "usd": {
       "sr_bi": 5520,
-      "sr_es": 4320,
+      "sr_es": 3888,
       "ssr_bi": 4320,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 4800,
@@ -114,9 +114,9 @@
   "erp_oracle": {
     "usd": {
       "sr_bi": 3600,
-      "sr_es": 2880,
+      "sr_es": 2592,
       "ssr_bi": 2880,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 3130,
@@ -128,9 +128,9 @@
   "erp_d365": {
     "usd": {
       "sr_bi": 4800,
-      "sr_es": 4800,
+      "sr_es": 4320,
       "ssr_bi": 3600,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 4180,
@@ -142,9 +142,9 @@
   "erp_odoo": {
     "usd": {
       "sr_bi": 2880,
-      "sr_es": 2880,
+      "sr_es": 2592,
       "ssr_bi": 2400,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 2510,
@@ -156,9 +156,9 @@
   "core_fs": {
     "usd": {
       "sr_bi": 5520,
-      "sr_es": 4320,
+      "sr_es": 3888,
       "ssr_bi": 4320,
-      "ssr_es": 2880
+      "ssr_es": 2592
     },
     "eur": {
       "sr_bi": 4800,
@@ -170,9 +170,9 @@
   "core_be": {
     "usd": {
       "sr_bi": 5520,
-      "sr_es": 4080,
+      "sr_es": 3672,
       "ssr_bi": 4320,
-      "ssr_es": 3120
+      "ssr_es": 2808
     },
     "eur": {
       "sr_bi": 4800,
@@ -184,9 +184,9 @@
   "core_fe": {
     "usd": {
       "sr_bi": 4800,
-      "sr_es": 4080,
+      "sr_es": 3672,
       "ssr_bi": 3600,
-      "ssr_es": 3120
+      "ssr_es": 2808
     },
     "eur": {
       "sr_bi": 4180,
@@ -198,9 +198,9 @@
   "core_mob": {
     "usd": {
       "sr_bi": 5520,
-      "sr_es": 4320,
+      "sr_es": 3888,
       "ssr_bi": 4080,
-      "ssr_es": 3360
+      "ssr_es": 3024
     },
     "eur": {
       "sr_bi": 4800,
@@ -212,9 +212,9 @@
   "core_qa": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3120,
+      "sr_es": 2808,
       "ssr_bi": 3600,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 3760,
@@ -226,9 +226,9 @@
   "nodev_ux": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3120,
+      "sr_es": 2808,
       "ssr_bi": 3600,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 3760,
@@ -240,9 +240,9 @@
   "nodev_growth": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3600,
+      "sr_es": 3240,
       "ssr_bi": 2880,
-      "ssr_es": 2880
+      "ssr_es": 2592
     },
     "eur": {
       "sr_bi": 3760,
@@ -254,9 +254,9 @@
   "nodev_data": {
     "usd": {
       "sr_bi": 5520,
-      "sr_es": 4320,
+      "sr_es": 3888,
       "ssr_bi": 4320,
-      "ssr_es": 3600
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 4800,
@@ -268,9 +268,9 @@
   "nodev_graphic": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3120,
+      "sr_es": 2808,
       "ssr_bi": 3600,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 3760,
@@ -282,9 +282,9 @@
   "nodev_content": {
     "usd": {
       "sr_bi": 4320,
-      "sr_es": 3120,
+      "sr_es": 2808,
       "ssr_bi": 3600,
-      "ssr_es": 2400
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 3760,
