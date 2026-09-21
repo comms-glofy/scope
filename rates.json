@@ -292,5 +292,131 @@
       "ssr_bi": 1820,
       "ssr_es": 1350
     }
+  },
+  "bd_sdr": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "bd_bdr": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "bd_am": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "bd_se": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "bd_seng": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "erp_netsuite": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "erp_workday": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "erp_hubspot": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
+  },
+  "erp_zoho": {
+    "usd": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    },
+    "eur": {
+      "sr_bi": 1000,
+      "sr_es": 1000,
+      "ssr_bi": 1000,
+      "ssr_es": 1000
+    }
   }
 }
