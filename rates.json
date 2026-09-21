@@ -295,10 +295,10 @@
   },
   "bd_sdr": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 3600,
+      "sr_es": 2808,
+      "ssr_bi": 2880,
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 1000,
@@ -309,10 +309,10 @@
   },
   "bd_bdr": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 3600,
+      "sr_es": 2808,
+      "ssr_bi": 2880,
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 1000,
@@ -323,10 +323,10 @@
   },
   "bd_am": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 5520,
+      "sr_es": 4752,
+      "ssr_bi": 4080,
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 1000,
@@ -337,10 +337,10 @@
   },
   "bd_se": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 5520,
+      "sr_es": 4752,
+      "ssr_bi": 4080,
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 1000,
@@ -351,10 +351,10 @@
   },
   "bd_seng": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 6000,
+      "sr_es": 4752,
+      "ssr_bi": 4560,
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 1000,
@@ -365,10 +365,10 @@
   },
   "erp_netsuite": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 5520,
+      "sr_es": 4320,
+      "ssr_bi": 4320,
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 1000,
@@ -379,10 +379,10 @@
   },
   "erp_workday": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 5520,
+      "sr_es": 4320,
+      "ssr_bi": 4320,
+      "ssr_es": 3240
     },
     "eur": {
       "sr_bi": 1000,
@@ -393,10 +393,10 @@
   },
   "erp_hubspot": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 4080,
+      "sr_es": 3240,
+      "ssr_bi": 2880,
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 1000,
@@ -407,10 +407,10 @@
   },
   "erp_zoho": {
     "usd": {
-      "sr_bi": 1000,
-      "sr_es": 1000,
-      "ssr_bi": 1000,
-      "ssr_es": 1000
+      "sr_bi": 4080,
+      "sr_es": 3240,
+      "ssr_bi": 2880,
+      "ssr_es": 2160
     },
     "eur": {
       "sr_bi": 1000,
