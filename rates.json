@@ -225,10 +225,10 @@
   },
   "nodev_ux": {
     "usd": {
-      "sr_bi": 4080,
-      "sr_es": 2808,
-      "ssr_bi": 2880,
-      "ssr_es": 2160
+      "sr_bi": 2960,
+      "sr_es": 2040,
+      "ssr_bi": 2090,
+      "ssr_es": 1570
     },
     "eur": {
       "sr_bi": 3560,
@@ -239,10 +239,10 @@
   },
   "nodev_growth": {
     "usd": {
-      "sr_bi": 4080,
-      "sr_es": 3200,
-      "ssr_bi": 2880,
-      "ssr_es": 2160
+      "sr_bi": 2960,
+      "sr_es": 2320,
+      "ssr_bi": 2090,
+      "ssr_es": 1570
     },
     "eur": {
       "sr_bi": 3560,
@@ -267,10 +267,10 @@
   },
   "nodev_graphic": {
     "usd": {
-      "sr_bi": 3600,
-      "sr_es": 2808,
-      "ssr_bi": 2880,
-      "ssr_es": 2160
+      "sr_bi": 2610,
+      "sr_es": 2040,
+      "ssr_bi": 2090,
+      "ssr_es": 1570
     },
     "eur": {
       "sr_bi": 3140,
@@ -281,10 +281,10 @@
   },
   "nodev_content": {
     "usd": {
-      "sr_bi": 3600,
-      "sr_es": 2808,
-      "ssr_bi": 2880,
-      "ssr_es": 2160
+      "sr_bi": 2610,
+      "sr_es": 2040,
+      "ssr_bi": 2090,
+      "ssr_es": 1570
     },
     "eur": {
       "sr_bi": 3140,
