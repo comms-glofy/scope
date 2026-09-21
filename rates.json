@@ -7,7 +7,7 @@
       "ssr_es": 3520
     },
     "eur": {
-      "sr_bi": 0,
+      "sr_bi": 5580,
       "sr_es": 3770,
       "ssr_bi": 4810,
       "ssr_es": 3070
@@ -231,10 +231,10 @@
       "ssr_es": 1570
     },
     "eur": {
-      "sr_bi": 3560,
-      "sr_es": 2450,
-      "ssr_bi": 2510,
-      "ssr_es": 1880
+      "sr_bi": 2580,
+      "sr_es": 1780,
+      "ssr_bi": 1820,
+      "ssr_es": 1370
     }
   },
   "nodev_growth": {
@@ -245,10 +245,10 @@
       "ssr_es": 1570
     },
     "eur": {
-      "sr_bi": 3560,
-      "sr_es": 2790,
-      "ssr_bi": 2510,
-      "ssr_es": 1880
+      "sr_bi": 2580,
+      "sr_es": 2020,
+      "ssr_bi": 1820,
+      "ssr_es": 1370
     }
   },
   "nodev_data": {
@@ -273,10 +273,10 @@
       "ssr_es": 1570
     },
     "eur": {
-      "sr_bi": 3140,
-      "sr_es": 2450,
-      "ssr_bi": 2510,
-      "ssr_es": 1880
+      "sr_bi": 2280,
+      "sr_es": 1780,
+      "ssr_bi": 1820,
+      "ssr_es": 1370
     }
   },
   "nodev_content": {
@@ -287,10 +287,10 @@
       "ssr_es": 1570
     },
     "eur": {
-      "sr_bi": 3140,
-      "sr_es": 2450,
-      "ssr_bi": 2510,
-      "ssr_es": 0
+      "sr_bi": 2280,
+      "sr_es": 1780,
+      "ssr_bi": 1820,
+      "ssr_es": 1370
     }
   }
 }
